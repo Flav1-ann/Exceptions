@@ -1,0 +1,23 @@
+2021-01-26 16:09:50 ERROR - com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2021-01-26 16:10:41 ERROR - com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2021-01-26 16:11:57 ERROR - com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2021-01-27 10:28:26 INFO  - l'étudiant zara azrzar a été créé.
+2021-01-27 10:44:14 INFO  - l'étudiant dsg sg a été créé.
+2021-01-27 10:44:26 INFO  - l'étudiant sgds gdsgdsg a été créé.
+2021-01-27 10:45:33 INFO  - l'étudiant zetzet tztzetzet a été créé.
+2021-01-27 10:46:25 INFO  - l'étudiant sdgsdg sdgsdg a été créé.
+2021-01-27 10:47:01 INFO  - l'étudiant retret ertret a été créé.
+2021-01-27 12:21:01 INFO  - l'étudiant TEST test a été modifié.
+2021-01-27 12:21:08 INFO  - l'étudiant allan test a été modifié.
+2021-01-27 12:21:14 INFO  - l'étudiant allan  a été modifié.
+2021-01-27 12:21:23 INFO  - l'étudiant allan  a été modifié.
+2021-01-27 12:22:16 INFO  - l'étudiant allan  a été modifié.
+2021-01-27 12:26:20 INFO  - l'étudiant a été supprimé.
+2021-01-27 12:29:32 INFO  - l'étudiant ALLAn ALLAn a été modifié.
+2021-01-27 13:51:34 INFO  - l'étudiant ALLAn ALLAn a été modifié.
