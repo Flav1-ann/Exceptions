@@ -22,7 +22,7 @@ public class ResponsableDao extends BaseDao implements IResponsableDao {
 	 * @return un entier validant ou non l'opération
 	 */
 	@Override
-	public int createResponsable(Responsable r) throws DaoException {
+	public int create(Responsable r) throws DaoException {
 		connexion();
 		String sql;
 		try {
@@ -53,7 +53,7 @@ public class ResponsableDao extends BaseDao implements IResponsableDao {
 	 * @return un entier validant ou non l'opération
 	 */
 	@Override
-	public int updateResponsable(Responsable r) throws DaoException {
+	public int update(Responsable r) throws DaoException {
 		connexion();
 		String sql;
 		try {
@@ -86,7 +86,7 @@ public class ResponsableDao extends BaseDao implements IResponsableDao {
 	 * @return un entier validant ou non l'opération
 	 */
 	@Override
-	public int deleteResponsable(int id) throws DaoException  {
+	public int delete(int id) throws DaoException  {
 		connexion();
 		String sql;
 		try {
@@ -111,7 +111,7 @@ public class ResponsableDao extends BaseDao implements IResponsableDao {
 	 * @return un responsable
 	 */
 	@Override
-	public Responsable getResponsable(int id) throws DaoException {
+	public Responsable get(int id) throws DaoException {
 		connexion();
 		String sql;
 		Responsable res = null;
@@ -137,7 +137,7 @@ public class ResponsableDao extends BaseDao implements IResponsableDao {
 	 * @throws SQLException exception sql
 	 */
 	@Override
-	public Set<Responsable> getAllResponsables() throws DaoException {
+	public Set<Responsable> getAll() throws DaoException {
 		connexion();
 		String sql;
 

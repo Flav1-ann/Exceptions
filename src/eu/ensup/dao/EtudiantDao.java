@@ -14,7 +14,7 @@ import eu.ensup.domaine.Etudiant;
  */
 public class EtudiantDao extends BaseDao implements IEtudiantDao {
 	@Override
-	public int addEtudiant(Etudiant etudiant) throws DaoException {
+	public int create(Etudiant etudiant) throws DaoException {
 		connexion();
 		String sql;
 		try {
@@ -41,7 +41,7 @@ public class EtudiantDao extends BaseDao implements IEtudiantDao {
 	}
 
 	@Override
-	public int updateEtudiant(Etudiant etudiant) throws DaoException {
+	public int update(Etudiant etudiant) throws DaoException {
 		connexion();
 
 		String sql;
@@ -71,7 +71,7 @@ public class EtudiantDao extends BaseDao implements IEtudiantDao {
 	}
 
 	@Override
-	public int deleteEtudiant(int id) throws DaoException {
+	public int delete(int id) throws DaoException {
 		connexion();
 		String sql;
 		try {
@@ -92,7 +92,7 @@ public class EtudiantDao extends BaseDao implements IEtudiantDao {
 	}
 
 	@Override
-	public Etudiant getEtudiant(int id) throws DaoException{
+	public Etudiant get(int id) throws DaoException{
 		connexion();
 		String sql;
 		Etudiant etudiant = new Etudiant();
@@ -119,7 +119,7 @@ public class EtudiantDao extends BaseDao implements IEtudiantDao {
 	}
 
 	@Override
-	public Set<Etudiant> getfindAll() throws DaoException {
+	public Set<Etudiant> getAll() throws DaoException {
 
 		String sql;
 		Set<Etudiant> etudiantList = new HashSet<>();

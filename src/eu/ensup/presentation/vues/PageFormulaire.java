@@ -59,7 +59,7 @@ public class PageFormulaire extends  Fenetre {
                 Date sqldate = new Date(dateChooser.getDate().getTime());
                 Etudiant etudiant = new Etudiant(input_nom.getText(), input_mail.getText(), input_adresse.getText(), input_tel.getText(), input_prenom.getText(), "", "", sqldate);
                 try {
-                    etudiantService.addEtudiant(etudiant);
+                    etudiantService.create(etudiant);
                     String message = "";
                     String title = "";
                     int typeMessage = 1;

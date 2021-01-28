@@ -1,17 +1,19 @@
 package eu.ensup.service;
 
+import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
+import java.util.Set;
+
 import eu.ensup.dao.EtudiantDao;
 import eu.ensup.dao.IEtudiantDao;
 import eu.ensup.dao.exceptions.DaoException;
-import eu.ensup.dao.exceptions.DatabaseException;
 import eu.ensup.domaine.Etudiant;
 import eu.ensup.service.exception.CredentialException;
-import eu.ensup.service.exception.etudiantExceptions.*;
-
-import java.security.NoSuchAlgorithmException;
-import java.sql.SQLException;
-import java.util.Base64;
-import java.util.Set;
+import eu.ensup.service.exception.etudiantExceptions.AddEtudiantServiceException;
+import eu.ensup.service.exception.etudiantExceptions.DeleteEtudiantServiceException;
+import eu.ensup.service.exception.etudiantExceptions.GetAllEtudiantServiceException;
+import eu.ensup.service.exception.etudiantExceptions.GetEtudiantServiceException;
+import eu.ensup.service.exception.etudiantExceptions.UpdateEtudiantServiceException;
 
 /**
  * The type Etudiant service.
@@ -22,7 +24,7 @@ public class EtudiantService implements IEtudiantService{
     private final PersonnePhysiqueService personnePhysiqueService = new PersonnePhysiqueService();
 
     @Override
-    public int addEtudiant(Etudiant etudiant) throws AddEtudiantServiceException, CredentialException {
+    public int create(Etudiant etudiant) throws AddEtudiantServiceException, CredentialException {
         byte[] salt = personnePhysiqueService.createSalt();
         String hash = null;
         try {
@@ -34,7 +36,7 @@ public class EtudiantService implements IEtudiantService{
         etudiant.setSalt(Base64.getEncoder().encodeToString(salt));
         etudiant.setMotDePasse(hash);
         try {
-            return etudiantDao.addEtudiant(etudiant);
+            return etudiantDao.create(etudiant);
         }
         catch (DaoException e) {
             throw new AddEtudiantServiceException();
@@ -43,9 +45,9 @@ public class EtudiantService implements IEtudiantService{
     }
 
     @Override
-    public int updateEtudiant(Etudiant etudiant) throws UpdateEtudiantServiceException {
+    public int update(Etudiant etudiant) throws UpdateEtudiantServiceException {
         try {
-            return etudiantDao.updateEtudiant(etudiant);
+            return etudiantDao.update(etudiant);
         }
         catch (DaoException e) {
             throw new UpdateEtudiantServiceException();
@@ -53,9 +55,9 @@ public class EtudiantService implements IEtudiantService{
     }
 
     @Override
-    public int deleteEtudiant(int id) throws DeleteEtudiantServiceException {
+    public int delete(int id) throws DeleteEtudiantServiceException {
         try {
-            return etudiantDao.deleteEtudiant(id);
+            return etudiantDao.delete(id);
         }
         catch (DaoException e) {
             throw new DeleteEtudiantServiceException();
@@ -64,9 +66,9 @@ public class EtudiantService implements IEtudiantService{
     }
 
     @Override
-    public Etudiant getEtudiant(int id) throws GetEtudiantServiceException {
+    public Etudiant get(int id) throws GetEtudiantServiceException {
         try {
-            return etudiantDao.getEtudiant(id);
+            return etudiantDao.get(id);
         }
         catch (DaoException e) {
             throw new GetEtudiantServiceException();
@@ -75,9 +77,9 @@ public class EtudiantService implements IEtudiantService{
     }
 
     @Override
-    public Set<Etudiant> getfindAll() throws GetAllEtudiantServiceException {
+    public Set<Etudiant> getAll() throws GetAllEtudiantServiceException {
         try {
-            return etudiantDao.getfindAll();
+            return etudiantDao.getAll();
         }
         catch (DaoException e) {
             throw new GetAllEtudiantServiceException();

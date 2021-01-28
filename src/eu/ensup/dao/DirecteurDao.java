@@ -23,7 +23,7 @@ public class DirecteurDao extends BaseDao implements IDirecteurDao {
 	 * @throws SQLException exception SQL
 	 */
 	@Override
-	public int createDirecteur(Directeur d) throws DaoException {
+	public int create(Directeur d) throws DaoException {
 		connexion();
 		try {
 			setCs(getCn().prepareCall("{CALL insertDirecteur('"+ d.getNom() +"'," +
@@ -51,7 +51,7 @@ public class DirecteurDao extends BaseDao implements IDirecteurDao {
 	 * @throws SQLException exception SQL
 	 */
 	@Override
-	public int updateDirecteur(Directeur d) throws DaoException {
+	public int update(Directeur d) throws DaoException {
 		connexion();
 		try {
 			setCs(getCn().prepareCall("{CALL updateDirecteur("+d.getId()+
@@ -78,7 +78,7 @@ public class DirecteurDao extends BaseDao implements IDirecteurDao {
 	 * @throws SQLException exception SQL
 	 */
 	@Override
-	public int deleteDirecteur(int id) throws DaoException {
+	public int delete(int id) throws DaoException {
 		connexion();
 		try {
 			setCs(getCn().prepareCall("{CALL deleteDirecteur("+id+")}"));
@@ -97,7 +97,7 @@ public class DirecteurDao extends BaseDao implements IDirecteurDao {
 	 * @throws SQLException exception SQL
 	 */
 	@Override
-	public Directeur getDirecteur(int id) throws DaoException {
+	public Directeur get(int id) throws DaoException {
 		Directeur d1 = new Directeur();
 		connexion();
 		try {
@@ -131,7 +131,7 @@ public class DirecteurDao extends BaseDao implements IDirecteurDao {
 	 * @throws SQLException exception SQL
 	 */
 	@Override
-	public Set<Directeur> getAllDirecteurs() throws DaoException {
+	public Set<Directeur> getAll() throws DaoException {
 		connexion();
 		Set<Directeur> directeurs = new HashSet<>();
 		try {

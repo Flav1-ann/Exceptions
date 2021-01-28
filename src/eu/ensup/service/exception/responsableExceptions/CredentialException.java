@@ -1,8 +1,11 @@
 package eu.ensup.service.exception.responsableExceptions;
 
+
 import eu.ensup.service.BaseService;
 
-public class CredentialException extends Exception {
+import eu.ensup.service.exception.ServiceException;
+
+public class CredentialException extends ServiceException {
 
     /**
      * Constructs a new exception with the specified detail message.  The
