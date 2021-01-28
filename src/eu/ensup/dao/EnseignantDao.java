@@ -7,7 +7,6 @@ import java.util.Set;
 
 import eu.ensup.dao.exceptions.CRUDException;
 import eu.ensup.dao.exceptions.DaoException;
-import eu.ensup.domaine.Directeur;
 import eu.ensup.domaine.Enseignant;
 
 /**
@@ -15,7 +14,7 @@ import eu.ensup.domaine.Enseignant;
  */
 public class EnseignantDao extends BaseDao implements IEnseignantDao {
 	@Override
-	public int createEnseignant(Enseignant enseignant) throws DaoException {
+	public int create(Enseignant enseignant) throws DaoException {
 		connexion();
 
 		String sql;
@@ -43,7 +42,7 @@ public class EnseignantDao extends BaseDao implements IEnseignantDao {
 	}
 
 	@Override
-	public int updateEnseignant(Enseignant enseignant) throws DaoException {
+	public int update(Enseignant enseignant) throws DaoException {
 		connexion();
 		String sql;
 		try {
@@ -71,7 +70,7 @@ public class EnseignantDao extends BaseDao implements IEnseignantDao {
 		return getResult();    }
 
 	@Override
-	public int deleteEnseignant(int id) throws DaoException {
+	public int delete(int id) throws DaoException {
 		connexion();
 		String sql;
 		try {
@@ -90,7 +89,7 @@ public class EnseignantDao extends BaseDao implements IEnseignantDao {
 		return getResult();    }
 
 	@Override
-	public Enseignant getEnseignant(int id) throws DaoException {
+	public Enseignant get(int id) throws DaoException {
 		connexion();
 		String sql;
 		Enseignant enseignant = null;
@@ -120,7 +119,7 @@ public class EnseignantDao extends BaseDao implements IEnseignantDao {
 	}
 
 	@Override
-	public Set<Enseignant> getAllEnseignants() throws DaoException {
+	public Set<Enseignant> getAll() throws DaoException {
 		connexion();
 		String sql;
 

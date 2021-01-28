@@ -1,8 +1,8 @@
 package eu.ensup.dao;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import eu.ensup.dao.exceptions.CRUDException;
 import eu.ensup.dao.exceptions.DaoException;
@@ -13,9 +13,10 @@ import eu.ensup.domaine.Etudiant;
 /**
  * The type Cours dao.
  */
-public class CoursDao extends BaseDao implements ICoursDao {
+public class CoursDao extends BaseDao implements ICoursDao
+{
 	@Override
-	public int addCours(Cours cours) throws DaoException
+	public int create(Cours cours) throws DaoException
 	{
 		connexion();
 		try {
@@ -43,7 +44,7 @@ public class CoursDao extends BaseDao implements ICoursDao {
 	}
 
 	@Override
-	public int updateCours(Cours cours) throws DaoException {
+	public int update(Cours cours) throws DaoException {
 		connexion();
 		try {
 			String sql = "UPDATE `cours` SET `theme`= ?,`nb_heures`= ?";
@@ -60,14 +61,14 @@ public class CoursDao extends BaseDao implements ICoursDao {
 	}
 
 	@Override
-	public int deleteCours(Cours cours) throws DaoException
+	public int delete(int id) throws DaoException
 	{
 		connexion();
 		String sql;
 		try {
 			sql = "DELETE FROM `cours` WHERE `id_cours` = ?";
 			BaseDao.setPs(BaseDao.getCn().prepareStatement(sql));
-			BaseDao.getPs().setInt(1, cours.getId());
+			BaseDao.getPs().setInt(1, id);
 			BaseDao.setResult(BaseDao.getPs().executeUpdate());
 		} catch (SQLException e) {
 			throw new CRUDException(e, Cours.class.getName(), "Delete");
@@ -78,7 +79,7 @@ public class CoursDao extends BaseDao implements ICoursDao {
 	}
 
 	@Override
-	public Cours getCours(int id) throws DaoException {
+	public Cours get(int id) throws DaoException {
 		connexion();
 		String sql;
 		try {
@@ -97,11 +98,11 @@ public class CoursDao extends BaseDao implements ICoursDao {
 	}
 
 	@Override
-	public List<Cours> findAll() throws DaoException {
+	public Set<Cours> getAll() throws DaoException {
 		connexion();
 
 		String sql;
-		List<Cours> cours = new ArrayList<>();
+		Set<Cours> cours = new HashSet<>();
 		try {
 			sql = "SELECT * FROM cours ";
 			BaseDao.setPs(BaseDao.getCn().prepareStatement(sql));
@@ -148,10 +149,10 @@ public class CoursDao extends BaseDao implements ICoursDao {
 	}
 
 	@Override
-	public List<Cours> getCoursEtudiant(int idEtudiant) throws DaoException {
+	public Set<Cours> getCoursEtudiant(int idEtudiant) throws DaoException {
 		connexion();
 		// TODO Auto-generated method stub
-		List<Cours> cours = new ArrayList<Cours>();
+		Set<Cours> cours = new HashSet<>();
 		try {
 			//2- créer la requête
 			String sql = "SELECT * FROM cours, suivre, etudiant" +
