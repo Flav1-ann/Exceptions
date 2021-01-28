@@ -1,6 +1,8 @@
 package eu.ensup.service.exception.coursExceptions;
 
-public class GetAllCoursServiceException extends Exception {
+import eu.ensup.service.exception.ServiceException;
+
+public class GetAllCoursServiceException extends ServiceException {
     public GetAllCoursServiceException() {
         super();
     }

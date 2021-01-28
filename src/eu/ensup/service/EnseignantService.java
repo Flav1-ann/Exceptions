@@ -1,13 +1,16 @@
 package eu.ensup.service;
 
+import java.util.Set;
+
 import eu.ensup.dao.EnseignantDao;
 import eu.ensup.dao.IEnseignantDao;
 import eu.ensup.dao.exceptions.DaoException;
 import eu.ensup.domaine.Enseignant;
-import eu.ensup.service.exception.enseignantExceptions.*;
-
-import java.sql.SQLException;
-import java.util.Set;
+import eu.ensup.service.exception.enseignantExceptions.AddEnseignantServiceException;
+import eu.ensup.service.exception.enseignantExceptions.DeleteEnseignantServiceException;
+import eu.ensup.service.exception.enseignantExceptions.GetAllEnseignantServiceException;
+import eu.ensup.service.exception.enseignantExceptions.GetEnseignantServiceException;
+import eu.ensup.service.exception.enseignantExceptions.UpdateEnseignantServiceException;
 
 /**
  * The type Enseignant service.
@@ -16,9 +19,9 @@ public class EnseignantService implements IEnseignantService{
     private final IEnseignantDao enseignantDao = new EnseignantDao();
 
     @Override
-    public int createEnseignant(Enseignant enseignant) throws AddEnseignantServiceException {
+    public int create(Enseignant enseignant) throws AddEnseignantServiceException {
         try {
-            return enseignantDao.createEnseignant(enseignant);
+            return enseignantDao.create(enseignant);
         }catch (DaoException e){
             throw new AddEnseignantServiceException();
         }
@@ -26,36 +29,36 @@ public class EnseignantService implements IEnseignantService{
     }
 
     @Override
-    public int updateEnseignant(Enseignant enseignant) throws UpdateEnseignantServiceException {
+    public int update(Enseignant enseignant) throws UpdateEnseignantServiceException {
         try {
-            return enseignantDao.updateEnseignant(enseignant);
+            return enseignantDao.update(enseignant);
         }catch (DaoException e){
             throw new UpdateEnseignantServiceException();
         }
     }
 
     @Override
-    public int deleteEnseignant(int id) throws DeleteEnseignantServiceException {
+    public int delete(int id) throws DeleteEnseignantServiceException {
         try {
-            return enseignantDao.deleteEnseignant(id);
+            return enseignantDao.delete(id);
         }catch (DaoException e) {
             throw new DeleteEnseignantServiceException();
         }
     }
 
     @Override
-    public Enseignant getEnseignant(int id) throws GetEnseignantServiceException {
+    public Enseignant get(int id) throws GetEnseignantServiceException {
         try {
-            return enseignantDao.getEnseignant(id);
+            return enseignantDao.get(id);
         }catch (DaoException e){
             throw new GetEnseignantServiceException();
         }
     }
 
     @Override
-    public Set<Enseignant> getAllEnseignants() throws GetAllEnseignantServiceException {
+    public Set<Enseignant> getAll() throws GetAllEnseignantServiceException {
         try {
-            return enseignantDao.getAllEnseignants();
+            return enseignantDao.getAll();
         }catch (DaoException e) {
             throw new GetAllEnseignantServiceException();
         }

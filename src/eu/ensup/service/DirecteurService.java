@@ -1,17 +1,19 @@
 package eu.ensup.service;
 
-import eu.ensup.dao.DirecteurDao;
-import eu.ensup.dao.exceptions.DaoException;
-import eu.ensup.domaine.Directeur;
-import eu.ensup.service.exception.CredentialException;
-import eu.ensup.service.exception.coursExceptions.UpdateCoursServiceException;
-import eu.ensup.service.exception.directeurExceptions.*;
-import eu.ensup.service.exception.etudiantExceptions.AddEtudiantServiceException;
-
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.Base64;
 import java.util.Set;
+
+import eu.ensup.dao.DirecteurDao;
+import eu.ensup.dao.exceptions.DaoException;
+import eu.ensup.domaine.Directeur;
+import eu.ensup.service.exception.CredentialException;
+import eu.ensup.service.exception.directeurExceptions.AddDirecteurServiceException;
+import eu.ensup.service.exception.directeurExceptions.DeleteDirecteurServiceException;
+import eu.ensup.service.exception.directeurExceptions.GetAllDirecteurServiceException;
+import eu.ensup.service.exception.directeurExceptions.GetDirecteurServiceException;
+import eu.ensup.service.exception.directeurExceptions.UpdateDirecteurServiceException;
 
 /**
  * Classe service de directeur implémentant l'interface IDirecteurService
@@ -34,7 +36,7 @@ public class DirecteurService implements IDirecteurService {
      * @throws SQLException exception SQL
      */
     @Override
-    public int addDirecteur(Directeur d) throws CredentialException, AddDirecteurServiceException {
+    public int create(Directeur d) throws CredentialException, AddDirecteurServiceException {
         byte[] salt = personnePhysiqueService.createSalt();
         String hash = null;
         try {
@@ -47,7 +49,7 @@ public class DirecteurService implements IDirecteurService {
         d.setSalt(Base64.getEncoder().encodeToString(salt));
         d.setMotDePasse(hash);
         try {
-            return directeurDao.createDirecteur(d);
+            return directeurDao.create(d);
         }
         catch (DaoException e) {
             throw new AddDirecteurServiceException();
@@ -61,9 +63,9 @@ public class DirecteurService implements IDirecteurService {
      * @throws SQLException exception SQL
      */
     @Override
-    public int updateDirecteur(Directeur d) throws UpdateDirecteurServiceException {
+    public int update(Directeur d) throws UpdateDirecteurServiceException {
         try {
-            return directeurDao.updateDirecteur(d);
+            return directeurDao.update(d);
         }catch(DaoException e) {
             throw new UpdateDirecteurServiceException();
         }
@@ -76,9 +78,9 @@ public class DirecteurService implements IDirecteurService {
      * @throws SQLException exception SQL
      */
     @Override
-    public int deleteDirecteur(int id) throws DeleteDirecteurServiceException {
+    public int delete(int id) throws DeleteDirecteurServiceException {
         try {
-            return directeurDao.deleteDirecteur(id);
+            return directeurDao.delete(id);
         }catch(DaoException e){
             throw new DeleteDirecteurServiceException();
         }
@@ -91,9 +93,9 @@ public class DirecteurService implements IDirecteurService {
      * @throws SQLException exception SQL
      */
     @Override
-    public Directeur getDirecteur(int id) throws GetDirecteurServiceException {
+    public Directeur get(int id) throws GetDirecteurServiceException {
         try {
-            return directeurDao.getDirecteur(id);
+            return directeurDao.get(id);
         } catch(DaoException e){
             throw new GetDirecteurServiceException();
         }
@@ -106,9 +108,9 @@ public class DirecteurService implements IDirecteurService {
      * @throws SQLException exception SQL
      */
     @Override
-    public Set<Directeur> getAllDirecteurs() throws GetAllDirecteurServiceException {
+    public Set<Directeur> getAll() throws GetAllDirecteurServiceException {
         try {
-            return directeurDao.getAllDirecteurs();
+            return directeurDao.getAll();
         }catch(DaoException e){
             throw new GetAllDirecteurServiceException();
         }

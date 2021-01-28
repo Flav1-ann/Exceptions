@@ -17,7 +17,8 @@ import java.util.List;
 /**
  * The type Page listing.
  */
-public class PageListing extends Fenetre{
+public class PageListing extends Fenetre
+{
     private JButton Btn_retour;
     private JTable tab_etudiants;
     private JPanel panelMain;
@@ -37,7 +38,7 @@ public class PageListing extends Fenetre{
         SimpleDateFormat sdf = new SimpleDateFormat(
                 "dd-MM-yyyy");
         EtudiantService etudiantService = new EtudiantService();
-        List<Etudiant> etudiants = new ArrayList<>(etudiantService.getfindAll());
+        List<Etudiant> etudiants = new ArrayList<>(etudiantService.getAll());
 
         int nbEtudiants = etudiants.size();
         label_count.setText("Il y a "+ nbEtudiants +" étudiants");

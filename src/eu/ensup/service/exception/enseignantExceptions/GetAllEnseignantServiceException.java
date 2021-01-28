@@ -1,6 +1,8 @@
 package eu.ensup.service.exception.enseignantExceptions;
 
-public class GetAllEnseignantServiceException extends Exception {
+import eu.ensup.service.exception.ServiceException;
+
+public class GetAllEnseignantServiceException extends ServiceException {
     public GetAllEnseignantServiceException() {
         super();
     }

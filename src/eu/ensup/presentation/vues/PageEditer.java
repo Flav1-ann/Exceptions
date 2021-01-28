@@ -87,7 +87,7 @@ public class PageEditer extends Fenetre {
                 try {
                     java.sql.Date sqldate = new java.sql.Date(dateChooser.getDate().getTime());
                     if(etudiantSelected[0] != null) {
-                        int ret = etudiantService.updateEtudiant(new Etudiant(etudiantSelected[0].getId(), input_nom.getText(), input_mail.getText(), input_adresse.getText(), input_tel.getText(), input_prenom.getText(), "", "", sqldate));
+                        int ret = etudiantService.update(new Etudiant(etudiantSelected[0].getId(), input_nom.getText(), input_mail.getText(), input_adresse.getText(), input_tel.getText(), input_prenom.getText(), "", "", sqldate));
 
                         String message = "";
                         String title = "";
@@ -127,7 +127,7 @@ public class PageEditer extends Fenetre {
                 if (retour == 0) {
                     try {
                         if(etudiantSelected[0] != null){
-                            etudiantService.deleteEtudiant(etudiantSelected[0].getId());
+                            etudiantService.delete(etudiantSelected[0].getId());
                         }
                         _clearForm();
                         _updateListEtudiant();
@@ -150,7 +150,7 @@ public class PageEditer extends Fenetre {
         comboBox.removeAllItems();
         comboBox.addItem("");
         try {
-            for (Etudiant etudiant : etudiantService.getfindAll()) {
+            for (Etudiant etudiant : etudiantService.getAll()) {
                 comboBox.addItem(etudiant);
             }
         } catch (GetAllEtudiantServiceException getAllEtudiantServiceException) {

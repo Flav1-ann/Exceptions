@@ -110,7 +110,7 @@ public class PageAssocierEtudiant extends  Fenetre{
         comboxListeEtudiant.addItem("");
         etudiants = new ArrayList<>();
         try {
-            etudiants.addAll(etudiantService.getfindAll());
+            etudiants.addAll(etudiantService.getAll());
             for (Etudiant etudiant: etudiants) {
                 comboxListeEtudiant.addItem(etudiant);
             }
@@ -122,7 +122,7 @@ public class PageAssocierEtudiant extends  Fenetre{
         comboBoxCours.removeAllItems();
         comboBoxCours.addItem("");
         cours = new ArrayList<>();
-        cours.addAll(coursService.findAll());
+        cours.addAll(coursService.getAll());
         for (Cours cour: cours) {
             comboBoxCours.addItem(cour);
         }

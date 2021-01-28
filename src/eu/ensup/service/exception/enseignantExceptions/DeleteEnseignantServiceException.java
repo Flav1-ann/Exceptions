@@ -1,6 +1,8 @@
 package eu.ensup.service.exception.enseignantExceptions;
 
-public class DeleteEnseignantServiceException extends Exception {
+import eu.ensup.service.exception.ServiceException;
+
+public class DeleteEnseignantServiceException extends ServiceException {
     public DeleteEnseignantServiceException() {
         super();
     }
