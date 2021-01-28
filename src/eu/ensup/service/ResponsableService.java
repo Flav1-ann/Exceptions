@@ -4,12 +4,15 @@ import eu.ensup.dao.ResponsableDao;
 import eu.ensup.dao.exceptions.DaoException;
 import eu.ensup.domaine.Responsable;
 import eu.ensup.service.exception.CredentialException;
+import eu.ensup.service.exception.EmailFormatException;
 import eu.ensup.service.exception.responsableExceptions.*;
 
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.Base64;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * The type Responsable service.
@@ -128,11 +131,16 @@ public class ResponsableService implements IResponsableService {
     }
     @Override
     public int validAuthentification(Responsable r, String password) throws NoSuchAlgorithmException, CredentialException {
-        if(r == null || r.getEmail() == null){
-            throw new CredentialException();
-        } else {
-            return personnePhysiqueService.validPersonnePhysique(r,password);
+        int errorCode = 0;
+        if(r != null) {
+            errorCode = personnePhysiqueService.validPersonnePhysique(r,password);
         }
 
+        if(r == null || errorCode == 0){
+            throw new CredentialException();
+        }
+        else {
+            return errorCode;
+        }
     }
 }

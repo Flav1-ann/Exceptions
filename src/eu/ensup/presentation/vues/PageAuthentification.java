@@ -2,6 +2,7 @@
 package eu.ensup.presentation.vues;
 import eu.ensup.service.exception.CredentialException;
 import eu.ensup.service.ResponsableService;
+import eu.ensup.service.exception.EmailFormatException;
 
 import javax.swing.*;
 import java.security.NoSuchAlgorithmException;
@@ -58,23 +59,19 @@ public class PageAuthentification extends Fenetre {
 
         this.btn_connexion.addActionListener(e -> {
 
-            if(validate(input_mail.getText())){
-                try {
+            try {
+                validate(input_mail.getText());
 
-                    user = responsableService.getCredentialByEmail(input_mail.getText());
-                    //Vérification du mot de passe et l'adresse mail
-                    //throw new NoSuchAlgorithmException();
-                    responsableService.validAuthentification(user, String.valueOf(input_mdp.getPassword())); //input_mail.getText() =="" && input_mdp.getText() ==""
-                    new PagePrincipal(user).setVisible(true);
-                    PageAuthentification.super.setVisible(false);
+                user = responsableService.getCredentialByEmail(input_mail.getText());
+                //Vérification du mot de passe et l'adresse mail
+                //throw new NoSuchAlgorithmException();
+                responsableService.validAuthentification(user, String.valueOf(input_mdp.getPassword())); //input_mail.getText() =="" && input_mdp.getText() ==""
+                new PagePrincipal(user).setVisible(true);
+                PageAuthentification.super.setVisible(false);
 
-                } catch (CredentialException ce) {
-                    erreurLabel.setText( ce.getMessage() );
-                } catch (NoSuchAlgorithmException nsae) {
-                    erreurLabel.setText(nsae.getMessage() );
-                }
-            } else {
-                erreurLabel.setText("L'email doit être au format xxx@xxx.xx ");
+            } catch (EmailFormatException | CredentialException | NoSuchAlgorithmException excep) {
+                erreurLabel.setText( excep.getMessage() );
+
             }
 
 
@@ -92,11 +89,13 @@ public class PageAuthentification extends Fenetre {
      * Validate boolean.
      *
      * @param emailStr the email str
-     * @return the boolean
+     * @throw EmailFormatException
      */
-    public static boolean validate(String emailStr) {
+    public static void validate(String emailStr) throws EmailFormatException {
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
-        return matcher.find();
+        if(!matcher.find() ) {
+            throw new EmailFormatException();
+        }
     }
 
 

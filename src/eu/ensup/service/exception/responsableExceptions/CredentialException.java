@@ -1,5 +1,7 @@
 package eu.ensup.service.exception.responsableExceptions;
 
+import eu.ensup.service.BaseService;
+
 public class CredentialException extends Exception {
 
     /**
@@ -10,5 +12,6 @@ public class CredentialException extends Exception {
      */
     public CredentialException() {
         super("Le mot de passe ou l'adresse mail..ne sont pas correcte... veuillez réessayer !");
+        BaseService.logger.info("Le mot de passe ou l'adresse mail..ne sont pas correcte... veuillez réessayer !");
     }
 }
