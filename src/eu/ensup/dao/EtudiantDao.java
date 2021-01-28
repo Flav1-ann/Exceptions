@@ -1,145 +1,142 @@
 package eu.ensup.dao;
 
-import eu.ensup.dao.exceptions.DatabaseException;
-import eu.ensup.domaine.Etudiant;
-
 import java.sql.SQLException;
 import java.sql.Types;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
+
+import eu.ensup.dao.exceptions.CRUDException;
+import eu.ensup.dao.exceptions.DaoException;
+import eu.ensup.domaine.Etudiant;
 
 /**
  * The type Data base etudiant dao.
  */
 public class EtudiantDao extends BaseDao implements IEtudiantDao {
-    @Override
-    public int addEtudiant(Etudiant etudiant) throws DatabaseException {
-        String sql;
-        try {
-            connexion();
-            sql = "{CALL insertEtudiant(?,?,?,?,?,?,?,?,?,?) } ";
-            setCs(getCn().prepareCall(sql));
-            getCs().setString(1, etudiant.getNom());
-            getCs().setString(2, etudiant.getPrenom());
-            getCs().setString(3, etudiant.getEmail());
-            getCs().setString(4, etudiant.getAdresse());
-            getCs().setString(5, etudiant.getTelephone());
-            getCs().setString(6, etudiant.getMotDePasse());
-            getCs().setString(7, etudiant.getSalt());
-            getCs().setString(8, "etudiant");
-            getCs().setDate(9,etudiant.getDateNaissance());
-            getCs().registerOutParameter(10, Types.INTEGER);
-            setRs(getCs().executeQuery());
-            setResult(getCs().getInt(10));
-            logger.info("l'étudiant " + etudiant + " a été créé.");
-        } catch (SQLException e) {
-            throw new DatabaseException("L'étudiant n'a pu etre créer");
-        }
-        disconnect();
-        return getResult();
-    }
+	@Override
+	public int addEtudiant(Etudiant etudiant) throws DaoException {
+		connexion();
+		String sql;
+		try {
+			sql = "{CALL insertEtudiant(?,?,?,?,?,?,?,?,?,?) } ";
+			setCs(getCn().prepareCall(sql));
+			getCs().setString(1, etudiant.getNom());
+			getCs().setString(2, etudiant.getPrenom());
+			getCs().setString(3, etudiant.getEmail());
+			getCs().setString(4, etudiant.getAdresse());
+			getCs().setString(5, etudiant.getTelephone());
+			getCs().setString(6, etudiant.getMotDePasse());
+			getCs().setString(7, etudiant.getSalt());
+			getCs().setString(8, "etudiant");
+			getCs().setDate(9,etudiant.getDateNaissance());
+			getCs().registerOutParameter(10, Types.INTEGER);
+			setRs(getCs().executeQuery());
+			setResult(getCs().getInt(10));
+			logger.info("l'étudiant " + etudiant + " a été créé.");
+		} catch (SQLException e) {
+			throw new CRUDException(e, Etudiant.class.getName(), "Create");
+		}
+		disconnect();
+		return getResult();
+	}
 
-    @Override
-    public int updateEtudiant(Etudiant etudiant) throws DatabaseException {
+	@Override
+	public int updateEtudiant(Etudiant etudiant) throws DaoException {
+		connexion();
 
-        String sql;
-        try {
-            connexion();
-            sql = "{CALL updateEtudiant(?,?,?,?,?,?,?,?,?,?,?) } ";
-            setCs(getCn().prepareCall(sql));
-            getCs().setInt(1, etudiant.getId());
-            getCs().setString(2, etudiant.getNom());
-            getCs().setString(3, etudiant.getPrenom());
-            getCs().setString(4, etudiant.getEmail());
-            getCs().setString(5, etudiant.getAdresse());
-            getCs().setString(6, etudiant.getTelephone());
-            getCs().setString(7, etudiant.getMotDePasse());
-            getCs().setString(8, etudiant.getSalt());
-            getCs().setString(9, "etudiant");
-            getCs().setDate(10,etudiant.getDateNaissance());
-            getCs().registerOutParameter(11, Types.INTEGER);
-            setRs(getCs().executeQuery());
-            setResult(getCs().getInt(11));
-            logger.info("l'étudiant " + etudiant + " a été modifié.");
+		String sql;
+		try {
+			sql = "{CALL updateEtudiant(?,?,?,?,?,?,?,?,?,?,?) } ";
+			setCs(getCn().prepareCall(sql));
+			getCs().setInt(1, etudiant.getId());
+			getCs().setString(2, etudiant.getNom());
+			getCs().setString(3, etudiant.getPrenom());
+			getCs().setString(4, etudiant.getEmail());
+			getCs().setString(5, etudiant.getAdresse());
+			getCs().setString(6, etudiant.getTelephone());
+			getCs().setString(7, etudiant.getMotDePasse());
+			getCs().setString(8, etudiant.getSalt());
+			getCs().setString(9, "etudiant");
+			getCs().setDate(10,etudiant.getDateNaissance());
+			getCs().registerOutParameter(11, Types.INTEGER);
+			setRs(getCs().executeQuery());
+			setResult(getCs().getInt(11));
+			logger.info("l'étudiant " + etudiant + " a été modifié.");
 
-        } catch (SQLException e) {
-            throw new DatabaseException("update Etudiant");
-        }
-        disconnect();
-        return getResult();
-    }
+		} catch (SQLException e) {
+			throw new CRUDException(e, Etudiant.class.getName(), "Update");
+		}
+		disconnect();
+		return getResult();
+	}
 
-    @Override
-    public int deleteEtudiant(int id) throws DatabaseException {
-        String sql;
-        try {
-            connexion();
-            sql = "{CALL deleteEtudiant(?,?) } ";
-            setCs(getCn().prepareCall(sql));
-            getCs().setInt(1, id);
-            getCs().registerOutParameter(2, Types.INTEGER);
-            setRs(getCs().executeQuery());
-            setResult(getCs().getInt(2));
-            logger.info("l'étudiant a été supprimé.");
+	@Override
+	public int deleteEtudiant(int id) throws DaoException {
+		connexion();
+		String sql;
+		try {
+			sql = "{CALL deleteEtudiant(?,?) } ";
+			setCs(getCn().prepareCall(sql));
+			getCs().setInt(1, id);
+			getCs().registerOutParameter(2, Types.INTEGER);
+			setRs(getCs().executeQuery());
+			setResult(getCs().getInt(2));
+			logger.info("l'étudiant a été supprimé.");
 
-        } catch (SQLException e) {
-           throw new DatabaseException("suppression etudiant");
-        }
-        disconnect();
-        return getResult();
+		} catch (SQLException e) {
+			throw new CRUDException(e, Etudiant.class.getName(), "Delete");
+		}
+		disconnect();
+		return getResult();
 
-    }
+	}
 
-    @Override
-    public Etudiant getEtudiant(int id) throws DatabaseException{
-        String sql;
-        Etudiant etudiant = new Etudiant();
-        try {
-            connexion();
-            sql = "select id_personne,date_naissance,nom,prenom,email,adresse,telephone,mdp,salt,id_role from personne a join  personne_phys b on a.id_personne = b.id_phys join etudiant c on b.id_phys = c.id_etudiant WHERE id_personne = ?";
-            setPs(getCn().prepareStatement(sql));
-            getPs().setInt(1, id);
-            setRs(getPs().executeQuery());
-            while (getRs().next()) {
-                etudiant.setDateNaissance(getRs().getDate("date_naissance"));
-                etudiant.setNom(getRs().getString("nom"));
-                etudiant.setPrenom(getRs().getString("prenom"));
-                etudiant.setEmail(getRs().getString("email"));
-                etudiant.setAdresse(getRs().getString("adresse"));
-                etudiant.setTelephone(getRs().getString("telephone"));
-                etudiant.setMotDePasse(getRs().getString("mdp"));
-                etudiant.setSalt(getRs().getString("salt"));
-            }
-            disconnect();
-            return etudiant;
-        } catch (SQLException e) {
-            throw new DatabaseException("La récupération de l'étudiant à échouer");
-        }
-    }
+	@Override
+	public Etudiant getEtudiant(int id) throws DaoException{
+		connexion();
+		String sql;
+		Etudiant etudiant = new Etudiant();
+		try {
+			sql = "select id_personne,date_naissance,nom,prenom,email,adresse,telephone,mdp,salt,id_role from personne a join  personne_phys b on a.id_personne = b.id_phys join etudiant c on b.id_phys = c.id_etudiant WHERE id_personne = ?";
+			setPs(getCn().prepareStatement(sql));
+			getPs().setInt(1, id);
+			setRs(getPs().executeQuery());
+			while (getRs().next()) {
+				etudiant.setDateNaissance(getRs().getDate("date_naissance"));
+				etudiant.setNom(getRs().getString("nom"));
+				etudiant.setPrenom(getRs().getString("prenom"));
+				etudiant.setEmail(getRs().getString("email"));
+				etudiant.setAdresse(getRs().getString("adresse"));
+				etudiant.setTelephone(getRs().getString("telephone"));
+				etudiant.setMotDePasse(getRs().getString("mdp"));
+				etudiant.setSalt(getRs().getString("salt"));
+			}
+		} catch (SQLException e) {
+			throw new CRUDException(e, Etudiant.class.getName(), "Get");
+		}
+		disconnect();
+		return etudiant;
+	}
 
-    @Override
-    public Set<Etudiant> getfindAll() throws DatabaseException {
+	@Override
+	public Set<Etudiant> getfindAll() throws DaoException {
 
-        String sql;
-        Set<Etudiant> etudiantList = new HashSet<>();
-        try {
-            connexion();
-            sql = "SELECT * FROM personne_phys as pp , personne as p , etudiant as e WHERE pp.id_phys = p.id_personne AND p.id_personne = e.id_etudiant ";
-            setPs(getCn().prepareStatement(sql));
-            setRs(getPs().executeQuery());
-            while (getRs().next()) {
-                etudiantList.add(new Etudiant(getRs().getInt("id_personne"), getRs().getString("nom"), getRs().getString("email"), getRs().getString("adresse"),
-                        getRs().getString("telephone"), getRs().getString("prenom"), getRs().getString("mdp"), getRs().getString("salt"), getRs().getDate("date_naissance")));
-            }
-            getPs().close();
-            getRs().close();
-            disconnect();
-            return etudiantList;
-        }
-        catch (SQLException e){
-            throw new DatabaseException("La récupération des étudiants à échouer");
-        }
-
-
-
-    }
+		String sql;
+		Set<Etudiant> etudiantList = new HashSet<>();
+		try {
+			connexion();
+			sql = "SELECT * FROM personne_phys as pp , personne as p , etudiant as e WHERE pp.id_phys = p.id_personne AND p.id_personne = e.id_etudiant ";
+			setPs(getCn().prepareStatement(sql));
+			setRs(getPs().executeQuery());
+			while (getRs().next()) {
+				etudiantList.add(new Etudiant(getRs().getInt("id_personne"), getRs().getString("nom"), getRs().getString("email"), getRs().getString("adresse"),
+						getRs().getString("telephone"), getRs().getString("prenom"), getRs().getString("mdp"), getRs().getString("salt"), getRs().getDate("date_naissance")));
+			}
+		}
+		catch (SQLException e){
+			throw new CRUDException(e, Etudiant.class.getName(), "GetAll");
+		}
+		disconnect();
+		return etudiantList;
+	}
 }

@@ -1,10 +1,10 @@
 package eu.ensup.dao;
 
-import eu.ensup.dao.exceptions.DatabaseException;
-import eu.ensup.domaine.Etudiant;
-
 import java.sql.SQLException;
 import java.util.Set;
+
+import eu.ensup.dao.exceptions.DaoException;
+import eu.ensup.domaine.Etudiant;
 
 /**
  * The interface Etudiant dao.
@@ -17,7 +17,7 @@ public interface IEtudiantDao {
      * @return the int
      * @throws SQLException the sql exception
      */
-    int addEtudiant(Etudiant etudiant) throws DatabaseException;
+    int addEtudiant(Etudiant etudiant) throws DaoException;
 
     /**
      * Update etudiant int.
@@ -26,7 +26,7 @@ public interface IEtudiantDao {
      * @return the int
      * @throws SQLException the sql exception
      */
-    int updateEtudiant(Etudiant etudiant) throws  DatabaseException;
+    int updateEtudiant(Etudiant etudiant) throws  DaoException;
 
     /**
      * Delete etudiant int.
@@ -35,7 +35,7 @@ public interface IEtudiantDao {
      * @return the int
      * @throws SQLException the sql exception
      */
-    int deleteEtudiant(int id) throws DatabaseException;
+    int deleteEtudiant(int id) throws DaoException;
 
     /**
      * Gets etudiant.
@@ -44,7 +44,7 @@ public interface IEtudiantDao {
      * @return the etudiant
      * @throws SQLException the sql exception
      */
-    Etudiant getEtudiant(int id) throws DatabaseException;
+    Etudiant getEtudiant(int id) throws DaoException;
 
     /**
      * Find all list.
@@ -52,5 +52,5 @@ public interface IEtudiantDao {
      * @return the list
      * @throws SQLException the sql exception
      */
-    Set<Etudiant> getfindAll() throws DatabaseException;
+    Set<Etudiant> getfindAll() throws DaoException;
 }

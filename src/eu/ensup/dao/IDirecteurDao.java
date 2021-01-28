@@ -1,9 +1,10 @@
 package eu.ensup.dao;
 
-import eu.ensup.domaine.Directeur;
-
 import java.sql.SQLException;
 import java.util.Set;
+
+import eu.ensup.dao.exceptions.DaoException;
+import eu.ensup.domaine.Directeur;
 
 /**
  * Interface DAO de directeur
@@ -17,7 +18,7 @@ public interface IDirecteurDao {
      * @return the int
      * @throws SQLException the sql exception
      */
-    int createDirecteur(Directeur p) throws SQLException;
+    int createDirecteur(Directeur p) throws DaoException;
 
     /**
      * Update directeur int.
@@ -26,7 +27,9 @@ public interface IDirecteurDao {
      * @return the int
      * @throws SQLException the sql exception
      */
-    int updateDirecteur(Directeur p) throws SQLException;
+
+
+    int updateDirecteur(Directeur p) throws DaoException;
 
     /**
      * Delete directeur int.
@@ -35,7 +38,7 @@ public interface IDirecteurDao {
      * @return the int
      * @throws SQLException the sql exception
      */
-    int deleteDirecteur(int id) throws SQLException;
+    int deleteDirecteur(int id) throws DaoException;
 
     /**
      * Gets directeur.
@@ -44,7 +47,7 @@ public interface IDirecteurDao {
      * @return the directeur
      * @throws SQLException the sql exception
      */
-    Directeur getDirecteur(int id) throws SQLException;
+    Directeur getDirecteur(int id) throws DaoException;
 
 
     /**
@@ -53,8 +56,5 @@ public interface IDirecteurDao {
      * @return the all directeurs
      * @throws SQLException the sql exception
      */
-    Set<Directeur> getAllDirecteurs() throws SQLException;
-
-
-
+    Set<Directeur> getAllDirecteurs() throws DaoException;
 }

@@ -1,11 +1,10 @@
 package eu.ensup.dao;
 
-import eu.ensup.dao.exceptions.DatabaseException;
-import eu.ensup.domaine.Enseignant;
-
 import java.sql.SQLException;
-import java.util.List;
 import java.util.Set;
+
+import eu.ensup.dao.exceptions.DaoException;
+import eu.ensup.domaine.Enseignant;
 
 /**
  * The interface Enseignant dao.
@@ -18,7 +17,7 @@ public interface IEnseignantDao {
      * @return the int
      * @throws SQLException the sql exception
      */
-    int createEnseignant(Enseignant enseignant) throws SQLException;
+    int createEnseignant(Enseignant enseignant) throws DaoException;
 
     /**
      * Update enseignant int.
@@ -27,7 +26,7 @@ public interface IEnseignantDao {
      * @return the int
      * @throws SQLException the sql exception
      */
-    int updateEnseignant(Enseignant enseignant) throws SQLException;
+    int updateEnseignant(Enseignant enseignant) throws DaoException;
 
     /**
      * Delete enseignant int.
@@ -36,7 +35,7 @@ public interface IEnseignantDao {
      * @return the int
      * @throws SQLException the sql exception
      */
-    int deleteEnseignant(int id) throws SQLException;
+    int deleteEnseignant(int id) throws DaoException;
 
     /**
      * Gets enseignant.
@@ -45,7 +44,7 @@ public interface IEnseignantDao {
      * @return the enseignant
      * @throws SQLException the sql exception
      */
-    Enseignant getEnseignant(int id) throws SQLException;
+    Enseignant getEnseignant(int id) throws DaoException;
 
     /**
      * Gets all enseignants.
@@ -53,5 +52,5 @@ public interface IEnseignantDao {
      * @return the all enseignants
      * @throws SQLException the sql exception
      */
-    Set<Enseignant> getAllEnseignants() throws SQLException;
+    Set<Enseignant> getAllEnseignants() throws DaoException;
 }

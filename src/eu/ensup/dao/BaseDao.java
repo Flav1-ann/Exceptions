@@ -1,10 +1,19 @@
 package eu.ensup.dao;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ResourceBundle;
+
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
-import java.sql.*;
-import java.util.ResourceBundle;
+import eu.ensup.dao.exceptions.CRUDException;
+import eu.ensup.dao.exceptions.DaoException;
 
 public class BaseDao {
 
@@ -60,29 +69,35 @@ public class BaseDao {
     /**
      * Methode qui permet la connexion a la bdd
      */
-    public void connexion() throws SQLException {
-            cn = DriverManager.getConnection(url, login, password);
-            st = cn.createStatement();
+    public void connexion() throws DaoException
+    {
+            try {
+				cn = DriverManager.getConnection(url, login, password);
+				st = cn.createStatement();
+			}
+            catch (SQLException e) {throw new CRUDException(e, "Database", "connexion");}
     }
 
     /**
      * Methode qui permet de ce deconnecter de la bdd
      */
-    public void disconnect() {
-        /*try {
-            /*assert cn != null;
-            cn.close();
-            assert cs != null;
-            cs.close();
-            assert ps != null;
-            ps.close();
-            assert st != null;
-            st.close();
-        } catch (SQLException e) {
-            logger.error(e);
-            e.printStackTrace();
-        }*/
-
+    public void disconnect() throws DaoException
+    {
+        try {
+        	if( rs != null )
+        		rs.close();
+        	if( cs != null )
+        		cs.close();
+        	if( ps != null )
+        		ps.close();
+        	if( st != null )
+        		st.close();
+        	if( cn != null )
+        		cn.close();
+        }
+        catch (SQLException e) {
+        	throw new CRUDException(e, "Database", "disconnect");
+        }
     }
 
     /**

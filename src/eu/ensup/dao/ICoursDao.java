@@ -1,9 +1,9 @@
 package eu.ensup.dao;
-import eu.ensup.dao.exceptions.DatabaseException;
+import java.util.List;
+
+import eu.ensup.dao.exceptions.DaoException;
 import eu.ensup.domaine.Cours;
 import eu.ensup.domaine.Etudiant;
-
-import java.util.List;
 
 /**
  * The interface Cours dao.
@@ -16,7 +16,7 @@ public interface ICoursDao {
      * @param cours the cours
      * @return int int
      */
-    int addCours(Cours cours) throws DatabaseException;
+    int addCours(Cours cours) throws DaoException;
 
     /**
      * Update cours int.
@@ -24,7 +24,7 @@ public interface ICoursDao {
      * @param cours the cours
      * @return int int
      */
-    int updateCours(Cours cours) throws DatabaseException;
+    int updateCours(Cours cours) throws DaoException;
 
     /**
      * Delete cours int
@@ -32,7 +32,7 @@ public interface ICoursDao {
      * @param cours the cours
      * @return int int
      */
-    int deleteCours(Cours cours) throws DatabaseException;
+    int deleteCours(Cours cours) throws DaoException;
 
     /**
      * get cours
@@ -40,14 +40,14 @@ public interface ICoursDao {
      * @param id the id
      * @return cours cours
      */
-    Cours getCours (int id) throws DatabaseException;
+    Cours getCours (int id) throws DaoException;
 
     /**
      * Find all list.
      *
      * @return list list
      */
-    List<Cours> findAll() throws DatabaseException;
+    List<Cours> findAll() throws DaoException;
 
     /**
      * Inscreption result set.
@@ -56,7 +56,7 @@ public interface ICoursDao {
      * @param e the e
      * @return the result set
      */
-    int inscription(Cours c, Etudiant e) throws DatabaseException;
+    int inscription(Cours c, Etudiant e) throws DaoException;
 
     /**
      * Gets cours etudiant.
@@ -64,6 +64,6 @@ public interface ICoursDao {
      * @param idEtudiant the id etudiant
      * @return the cours etudiant
      */
-    List<Cours> getCoursEtudiant(int idEtudiant) throws DatabaseException;
+    List<Cours> getCoursEtudiant(int idEtudiant) throws DaoException;
 
 }

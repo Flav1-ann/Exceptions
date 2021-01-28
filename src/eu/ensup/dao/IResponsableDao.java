@@ -1,11 +1,10 @@
 package eu.ensup.dao;
 
-import eu.ensup.domaine.Directeur;
-import eu.ensup.domaine.Responsable;
-
 import java.sql.SQLException;
-import java.util.List;
 import java.util.Set;
+
+import eu.ensup.dao.exceptions.DaoException;
+import eu.ensup.domaine.Responsable;
 
 /**
  * The interface Responsable dao.
@@ -18,7 +17,7 @@ public interface IResponsableDao {
      * @return the int
      * @throws SQLException the sql exception
      */
-    int createResponsable(Responsable r) throws SQLException;
+    int createResponsable(Responsable r) throws DaoException;
 
     /**
      * Update responsable int.
@@ -27,7 +26,7 @@ public interface IResponsableDao {
      * @return the int
      * @throws SQLException the sql exception
      */
-    int updateResponsable(Responsable r) throws SQLException;
+    int updateResponsable(Responsable r) throws DaoException;
 
     /**
      * Delete responsable int.
@@ -36,7 +35,7 @@ public interface IResponsableDao {
      * @return the int
      * @throws SQLException the sql exception
      */
-    int deleteResponsable(int id) throws SQLException;
+    int deleteResponsable(int id) throws DaoException;
 
     /**
      * Gets responsable.
@@ -45,7 +44,7 @@ public interface IResponsableDao {
      * @return the responsable
      * @throws SQLException the sql exception
      */
-    Responsable getResponsable(int id) throws SQLException;
+    Responsable getResponsable(int id) throws DaoException;
 
     /**
      * Gets all responsables.
@@ -53,7 +52,7 @@ public interface IResponsableDao {
      * @return the all responsables
      * @throws SQLException the sql exception
      */
-    Set<Responsable> getAllResponsables() throws SQLException;
+    Set<Responsable> getAllResponsables() throws DaoException;
 
 
     /**
@@ -63,6 +62,6 @@ public interface IResponsableDao {
      * @return the credential by email
      * @throws SQLException the sql exception
      */
-    Responsable getCredentialByEmail(String email) throws SQLException;
+    Responsable getCredentialByEmail(String email) throws DaoException;
 
 }
