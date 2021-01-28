@@ -3,7 +3,7 @@ package eu.ensup.presentation.vues;
 import eu.ensup.domaine.Etudiant;
 import eu.ensup.domaine.Responsable;
 import eu.ensup.service.EtudiantService;
-import eu.ensup.service.exceptions.EtudiantServiceException;
+import eu.ensup.service.exception.etudiantExceptions.GetAllEtudiantServiceException;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
@@ -30,7 +30,7 @@ public class PageListing extends Fenetre{
      * @param user the user
      * @throws SQLException the sql exception
      */
-    public PageListing(Responsable user) throws EtudiantServiceException {
+    public PageListing(Responsable user) throws GetAllEtudiantServiceException {
         super("Listing",user);
         this.setContentPane(panelMain);
 

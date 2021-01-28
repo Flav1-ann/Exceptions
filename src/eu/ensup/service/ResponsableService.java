@@ -1,8 +1,10 @@
 package eu.ensup.service;
 
 import eu.ensup.dao.ResponsableDao;
+import eu.ensup.dao.exceptions.DaoException;
 import eu.ensup.domaine.Responsable;
-import eu.ensup.service.exceptions.CredentialException;
+import eu.ensup.service.exception.CredentialException;
+import eu.ensup.service.exception.responsableExceptions.*;
 
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
@@ -24,13 +26,22 @@ public class ResponsableService implements IResponsableService {
      * @throws NoSuchAlgorithmException
      */
     @Override
-    public int addResponsable(Responsable r) throws NoSuchAlgorithmException {
+    public int addResponsable(Responsable r) throws CredentialException, AddResponsableServiceException {
         byte[] salt = personnePhysiqueService.createSalt();
-        String hash = personnePhysiqueService.generateHashPassword(r.getMotDePasse(),salt);
+        String hash = null;
+        try {
+            hash = personnePhysiqueService.generateHashPassword(r.getMotDePasse(), salt);
+        }catch (NoSuchAlgorithmException e){
+            throw new CredentialException();
+        }
 
         r.setSalt(Base64.getEncoder().encodeToString(salt));
         r.setMotDePasse(hash);
-        return responsableDao.createResponsable(r);
+        try{
+            return responsableDao.createResponsable(r);
+        }catch (DaoException e){
+            throw new AddResponsableServiceException();
+        }
     }
 
     /**
@@ -40,8 +51,12 @@ public class ResponsableService implements IResponsableService {
      * @throws SQLException
      */
     @Override
-    public int updateResponsable(Responsable r) throws SQLException {
-        return responsableDao.updateResponsable(r);
+    public int updateResponsable(Responsable r) throws UpdateResponsableServiceException {
+        try{
+            return responsableDao.updateResponsable(r);
+        }catch (DaoException e){
+            throw new UpdateResponsableServiceException();
+        }
     }
 
     /**
@@ -51,8 +66,12 @@ public class ResponsableService implements IResponsableService {
      * @throws SQLException
      */
     @Override
-    public int deleteResponsable(int id) throws SQLException {
-        return responsableDao.deleteResponsable(id);
+    public int deleteResponsable(int id) throws DeleteResponsableServiceException {
+        try{
+            return responsableDao.deleteResponsable(id);
+        }catch (DaoException e){
+            throw new DeleteResponsableServiceException();
+        }
     }
 
     /**
@@ -62,8 +81,12 @@ public class ResponsableService implements IResponsableService {
      * @throws SQLException
      */
     @Override
-    public Responsable getResponsable(int id) throws SQLException {
-        return responsableDao.getResponsable(id);
+    public Responsable getResponsable(int id) throws GetResponsableServiceException {
+        try {
+            return responsableDao.getResponsable(id);
+        }catch (DaoException e){
+            throw new GetResponsableServiceException();
+        }
     }
 
     /**
@@ -72,8 +95,12 @@ public class ResponsableService implements IResponsableService {
      * @throws SQLException
      */
     @Override
-    public Set<Responsable> getAllResponsables() throws SQLException {
-        return responsableDao.getAllResponsables();
+    public Set<Responsable> getAllResponsables() throws GetAllResponsableServiceException {
+        try{
+            return responsableDao.getAllResponsables();
+        }catch (DaoException e){
+            throw new GetAllResponsableServiceException();
+        }
     }
 
     /**
@@ -92,7 +119,7 @@ public class ResponsableService implements IResponsableService {
     public Responsable getCredentialByEmail(String email) throws CredentialException {
         try {
             return responsableDao.getCredentialByEmail(email);
-        } catch ( SQLException se) {
+        } catch (DaoException se) {
             throw new CredentialException();
         }
 

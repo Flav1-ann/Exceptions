@@ -1,7 +1,8 @@
 package eu.ensup.service;
 
 import eu.ensup.domaine.Etudiant;
-import eu.ensup.service.exceptions.EtudiantServiceException;
+import eu.ensup.service.exception.CredentialException;
+import eu.ensup.service.exception.etudiantExceptions.*;
 
 import java.sql.SQLException;
 import java.util.Set;
@@ -17,7 +18,7 @@ public interface IEtudiantService {
      * @return the int
      * @throws SQLException the sql exception
      */
-    int addEtudiant(Etudiant etudiant) throws EtudiantServiceException;
+    int addEtudiant(Etudiant etudiant) throws  AddEtudiantServiceException, CredentialException;
 
     /**
      * Update etudiant int.
@@ -26,7 +27,7 @@ public interface IEtudiantService {
      * @return the int
      * @throws SQLException the sql exception
      */
-    int updateEtudiant(Etudiant etudiant) throws  EtudiantServiceException;
+    int updateEtudiant(Etudiant etudiant) throws   UpdateEtudiantServiceException;
 
     /**
      * Delete etudiant int.
@@ -35,7 +36,7 @@ public interface IEtudiantService {
      * @return the int
      * @throws SQLException the sql exception
      */
-    int deleteEtudiant(int is) throws  EtudiantServiceException;
+    int deleteEtudiant(int is) throws   DeleteEtudiantServiceException;
 
     /**
      * Gets etudiant.
@@ -44,7 +45,7 @@ public interface IEtudiantService {
      * @return the etudiant
      * @throws SQLException the sql exception
      */
-    Etudiant getEtudiant(int id) throws EtudiantServiceException;
+    Etudiant getEtudiant(int id) throws  GetEtudiantServiceException;
 
     /**
      * Find all list.
@@ -52,6 +53,6 @@ public interface IEtudiantService {
      * @return the list
      * @throws SQLException the sql exception
      */
-    Set<Etudiant> getfindAll() throws EtudiantServiceException;
+    Set<Etudiant> getfindAll() throws  GetAllEtudiantServiceException;
 
 }

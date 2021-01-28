@@ -2,6 +2,8 @@ package eu.ensup.service;
 
 import eu.ensup.domaine.Directeur;
 import eu.ensup.domaine.PersonnePhysique;
+import eu.ensup.service.exception.CredentialException;
+import eu.ensup.service.exception.directeurExceptions.*;
 
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
@@ -21,7 +23,7 @@ public interface IDirecteurService {
      * @throws SQLException             the sql exception
      * @throws NoSuchAlgorithmException the no such algorithm exception
      */
-    int addDirecteur(Directeur d) throws SQLException, NoSuchAlgorithmException;
+    int addDirecteur(Directeur d) throws   CredentialException, AddDirecteurServiceException;
 
 
     /**
@@ -31,7 +33,7 @@ public interface IDirecteurService {
      * @return the int
      * @throws SQLException the sql exception
      */
-    int updateDirecteur(Directeur d) throws SQLException;
+    int updateDirecteur(Directeur d) throws  UpdateDirecteurServiceException;
 
     /**
      * Delete directeur int.
@@ -40,7 +42,7 @@ public interface IDirecteurService {
      * @return the int
      * @throws SQLException the sql exception
      */
-    int deleteDirecteur(int id) throws SQLException;
+    int deleteDirecteur(int id) throws  DeleteDirecteurServiceException;
 
     /**
      * Gets directeur.
@@ -49,7 +51,7 @@ public interface IDirecteurService {
      * @return the directeur
      * @throws SQLException the sql exception
      */
-    Directeur getDirecteur(int id) throws SQLException;
+    Directeur getDirecteur(int id) throws  GetDirecteurServiceException;
 
     /**
      * Gets all directeurs.
@@ -57,7 +59,7 @@ public interface IDirecteurService {
      * @return the all directeurs
      * @throws SQLException the sql exception
      */
-    Set<Directeur> getAllDirecteurs() throws SQLException;
+    Set<Directeur> getAllDirecteurs() throws  GetAllDirecteurServiceException;
 
 
 

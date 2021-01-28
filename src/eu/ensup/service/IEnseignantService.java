@@ -1,6 +1,7 @@
 package eu.ensup.service;
 
 import eu.ensup.domaine.Enseignant;
+import eu.ensup.service.exception.enseignantExceptions.*;
 
 import java.sql.SQLException;
 import java.util.Set;
@@ -16,7 +17,7 @@ public interface IEnseignantService {
      * @return the int
      * @throws SQLException the sql exception
      */
-    int createEnseignant(Enseignant enseignant) throws SQLException;
+    int createEnseignant(Enseignant enseignant) throws  AddEnseignantServiceException;
 
     /**
      * Update enseignant int.
@@ -25,7 +26,7 @@ public interface IEnseignantService {
      * @return the int
      * @throws SQLException the sql exception
      */
-    int updateEnseignant(Enseignant enseignant) throws SQLException;
+    int updateEnseignant(Enseignant enseignant) throws  UpdateEnseignantServiceException;
 
     /**
      * Delete enseignant int.
@@ -34,7 +35,7 @@ public interface IEnseignantService {
      * @return the int
      * @throws SQLException the sql exception
      */
-    int deleteEnseignant(int id) throws SQLException;
+    int deleteEnseignant(int id) throws  DeleteEnseignantServiceException;
 
     /**
      * Gets enseignant.
@@ -43,7 +44,7 @@ public interface IEnseignantService {
      * @return the enseignant
      * @throws SQLException the sql exception
      */
-    Enseignant getEnseignant(int id) throws SQLException;
+    Enseignant getEnseignant(int id) throws  GetEnseignantServiceException;
 
     /**
      * Gets all enseignants.
@@ -51,5 +52,5 @@ public interface IEnseignantService {
      * @return the all enseignants
      * @throws SQLException the sql exception
      */
-    Set<Enseignant> getAllEnseignants() throws SQLException;
+    Set<Enseignant> getAllEnseignants() throws  GetAllEnseignantServiceException;
 }
