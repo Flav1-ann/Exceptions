@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.Base64;
 
 /**
- * Classe personne physique permettant la gestion des propriétés d'une personne physique
+ * The type Personne physique service.
  */
 public class PersonnePhysiqueService implements IPersonnePhysiqueService{
 
@@ -34,12 +34,6 @@ public class PersonnePhysiqueService implements IPersonnePhysiqueService{
      * Constante de l'algorithme utilisé pour le hashage des mots de passes.
      */
 
-    /**
-     * Méthode permettant de générer le salt et le mot de passe d'une personne
-     * @param password mot de passe de l'utilisateur non hashé
-     * @return un set de string comportant le salt et le mot de passe hashé
-     * @throws NoSuchAlgorithmException erreur employée si l'algorithme de hashage n'existe pas
-     */
     @Override
     public String generateHashPassword(String password, byte[] salt) throws NoSuchAlgorithmException {
         MessageDigest digest = MessageDigest.getInstance(algo);
@@ -48,10 +42,6 @@ public class PersonnePhysiqueService implements IPersonnePhysiqueService{
        return Base64.getEncoder().encodeToString(digest.digest(password.getBytes()));
     }
 
-    /**
-     * Méthode permettant de créer le salt
-     * @return le salt en type bytes
-     */
     public  byte[] createSalt(){
         byte[] bytes = new byte[20];
         SecureRandom random = new SecureRandom();

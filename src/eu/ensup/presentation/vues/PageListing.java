@@ -29,7 +29,7 @@ public class PageListing extends Fenetre
      * Instantiates a new Page listing.
      *
      * @param user the user
-     * @throws SQLException the sql exception
+     * @throws GetAllEtudiantServiceException the get all etudiant service exception
      */
     public PageListing(Responsable user) throws GetAllEtudiantServiceException {
         super("Listing",user);

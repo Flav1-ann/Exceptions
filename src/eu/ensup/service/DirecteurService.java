@@ -16,25 +16,14 @@ import eu.ensup.service.exception.directeurExceptions.GetDirecteurServiceExcepti
 import eu.ensup.service.exception.directeurExceptions.UpdateDirecteurServiceException;
 
 /**
- * Classe service de directeur implémentant l'interface IDirecteurService
- *
- * @see IDirecteurService
+ * The type Directeur service.
  */
 public class DirecteurService implements IDirecteurService {
 
-    /**
-     * Constante faisant appel à la classe dao DirecteurDao
-     */
     private final DirecteurDao directeurDao = new DirecteurDao();
 
     private final PersonnePhysiqueService personnePhysiqueService = new PersonnePhysiqueService();
 
-    /**
-     * Méthode permettant d'ajouter un directeur
-     * @param d un directeur
-     * @return un entier représentant le résultat
-     * @throws SQLException exception SQL
-     */
     @Override
     public int create(Directeur d) throws CredentialException, AddDirecteurServiceException {
         byte[] salt = personnePhysiqueService.createSalt();
@@ -56,12 +45,6 @@ public class DirecteurService implements IDirecteurService {
         }
     }
 
-    /**
-     * Méthode permettant de mettre à jour un directeur
-     * @param d un directeur
-     * @return un entier représentant le résultat
-     * @throws SQLException exception SQL
-     */
     @Override
     public int update(Directeur d) throws UpdateDirecteurServiceException {
         try {
@@ -71,12 +54,6 @@ public class DirecteurService implements IDirecteurService {
         }
     }
 
-    /**
-     * Methode permettant la supression d'un directeur
-     * @param id identifiant du directeur
-     * @return un entier représentant le résultat
-     * @throws SQLException exception SQL
-     */
     @Override
     public int delete(int id) throws DeleteDirecteurServiceException {
         try {
@@ -86,12 +63,6 @@ public class DirecteurService implements IDirecteurService {
         }
     }
 
-    /**
-     * Méthode permettant la récupération d'un directeur par son identifiant
-     * @param id identifiant du directeur
-     * @return un directeur
-     * @throws SQLException exception SQL
-     */
     @Override
     public Directeur get(int id) throws GetDirecteurServiceException {
         try {
@@ -102,11 +73,6 @@ public class DirecteurService implements IDirecteurService {
     }
 
 
-    /**
-     * Mérhode permettant la récupération de tous les directeurs
-     * @return une liste de directeurs
-     * @throws SQLException exception SQL
-     */
     @Override
     public Set<Directeur> getAll() throws GetAllDirecteurServiceException {
         try {

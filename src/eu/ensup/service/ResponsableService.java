@@ -31,12 +31,6 @@ public class ResponsableService implements IResponsableService {
     private final ResponsableDao responsableDao = new ResponsableDao();
     private final PersonnePhysiqueService personnePhysiqueService = new PersonnePhysiqueService();
 
-    /**
-     * Méthode permettant d'ajouter un responsable
-     * @param r
-     * @return integer
-     * @throws NoSuchAlgorithmException
-     */
     @Override
     public int create(Responsable r) throws CredentialException, AddResponsableServiceException {
         byte[] salt = personnePhysiqueService.createSalt();
@@ -56,12 +50,6 @@ public class ResponsableService implements IResponsableService {
         }
     }
 
-    /**
-     * Méthode permettant de mettre à jour un responsable
-     * @param r
-     * @return integer
-     * @throws UpdateResponsableServiceException
-     */
     @Override
     public int update(Responsable r) throws UpdateResponsableServiceException {
         try{
@@ -71,12 +59,6 @@ public class ResponsableService implements IResponsableService {
         }
     }
 
-    /**
-     * Méthode permettant la suppression  d'un responsable
-     * @param id
-     * @return integer
-     * @throws DeleteResponsableServiceException
-     */
     @Override
     public int delete(int id) throws DeleteResponsableServiceException {
         try{
@@ -86,12 +68,6 @@ public class ResponsableService implements IResponsableService {
         }
     }
 
-    /**
-     * Méthode permettant la récupération d'un directeur par son identifiant
-     * @param id
-     * @return responsable
-     * @throws GetResponsableServiceException
-     */
     @Override
     public Responsable get(int id) throws GetResponsableServiceException {
         try {
@@ -101,11 +77,6 @@ public class ResponsableService implements IResponsableService {
         }
     }
 
-    /**
-     * Mérhode permettant la récupération de tous les directeurs
-     * @return integer
-     * @throws GetAllResponsableServiceException
-     */
     @Override
     public Set<Responsable> getAll() throws GetAllResponsableServiceException {
         try{
@@ -115,13 +86,6 @@ public class ResponsableService implements IResponsableService {
         }
     }
 
-    /**
-     *
-     * @param r
-     * @param password
-     * @return integer
-     * @throws NoSuchAlgorithmException return exception
-     */
     @Override
     public int validResponsableAuthentification(Responsable r, String password) throws NoSuchAlgorithmException {
         return personnePhysiqueService.validPersonnePhysique(r,password);

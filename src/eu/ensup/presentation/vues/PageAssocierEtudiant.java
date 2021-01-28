@@ -53,6 +53,8 @@ public class PageAssocierEtudiant extends  Fenetre{
      * Instantiates a new Page associer etudiant.
      *
      * @param user the user
+     * @throws InscriptionCoursServiceException the inscription cours service exception
+     * @throws GetAllCoursServiceException      the get all cours service exception
      */
     public PageAssocierEtudiant(Responsable user) throws InscriptionCoursServiceException, GetAllCoursServiceException {
         super("Inscrire un étudiant pour un cour",user);

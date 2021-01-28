@@ -2,10 +2,20 @@ package eu.ensup.dao.exceptions;
 
 import java.sql.SQLException;
 
+/**
+ * The type Crud exception.
+ */
 public class CRUDException extends DaoException
 {
 	private String codesErreurs;
-	
+
+	/**
+	 * Instantiates a new Crud exception.
+	 *
+	 * @param cause      the cause
+	 * @param nomObjet   the nom objet
+	 * @param nomMethode the nom methode
+	 */
 	public CRUDException(Throwable cause, String nomObjet, String nomMethode)
 	{
 		super(cause,nomObjet,nomMethode,cause.getClass().toString());

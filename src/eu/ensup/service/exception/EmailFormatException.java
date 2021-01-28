@@ -1,10 +1,11 @@
 package eu.ensup.service.exception;
 
+/**
+ * The type Email format exception.
+ */
 public class EmailFormatException extends Exception {
     /**
-     * Constructs a new exception with the specified detail message.  The
-     * cause is not initialized, and may subsequently be initialized by
-     * a call to {@link #initCause}.
+     * Instantiates a new Email format exception.
      */
     public EmailFormatException() {
         super("L'email doit être au format xxx@xxx.xx ");

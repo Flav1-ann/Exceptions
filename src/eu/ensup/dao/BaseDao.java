@@ -15,31 +15,16 @@ import org.apache.log4j.PropertyConfigurator;
 import eu.ensup.dao.exceptions.CRUDException;
 import eu.ensup.dao.exceptions.DaoException;
 
+/**
+ * The type Base dao.
+ */
 public class BaseDao {
 
-    /**
-     * L'url de la base de donnée
-     */
     private final String url;
-    /**
-     * Le login de la base de données
-     */
     private final String login;
-    /**
-     * Le mot de passe de la base de données
-     */
     private final String password;
-    /**
-     * Permet de créer la connection avec la base
-     */
     private static Connection cn = null;
-    /**
-     * Permet d'excuter des requete a partir de la connection
-     */
     private static Statement st = null;
-    /**
-     * Le resultat d'une requete SQL faite dans la base de données
-     */
     private static ResultSet rs = null;
 
     private static PreparedStatement ps = null;
@@ -55,7 +40,7 @@ public class BaseDao {
 
 
     /**
-     * Constructor
+     * Instantiates a new Base dao.
      */
     public BaseDao() {
         ResourceBundle bundle = ResourceBundle.getBundle("eu.ensup.domaine.properties.config");
@@ -67,7 +52,9 @@ public class BaseDao {
     }
 
     /**
-     * Methode qui permet la connexion a la bdd
+     * Connexion.
+     *
+     * @throws DaoException the dao exception
      */
     public void connexion() throws DaoException
     {
@@ -79,7 +66,9 @@ public class BaseDao {
     }
 
     /**
-     * Methode qui permet de ce deconnecter de la bdd
+     * Disconnect.
+     *
+     * @throws DaoException the dao exception
      */
     public void disconnect() throws DaoException
     {

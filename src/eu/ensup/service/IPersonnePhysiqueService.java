@@ -4,17 +4,17 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Set;
 
 /**
- * interface pour le service Personne Physique
+ * The interface Personne physique service.
  */
 public interface IPersonnePhysiqueService {
 
 
     /**
-     * Generate hash password set.
+     * Generate hash password string.
      *
      * @param password the password
      * @param salt     the salt
-     * @return the set
+     * @return the string
      * @throws NoSuchAlgorithmException the no such algorithm exception
      */
     String generateHashPassword(String password,byte[] salt) throws NoSuchAlgorithmException;

@@ -16,11 +16,6 @@ import eu.ensup.domaine.Responsable;
  * The type Responsable dao.
  */
 public class ResponsableDao extends BaseDao implements IResponsableDao {
-	/**
-	 * Méthode permettant de créer dans la base de données un responsable
-	 * @param r un responsable
-	 * @return un entier validant ou non l'opération
-	 */
 	@Override
 	public int create(Responsable r) throws DaoException {
 		connexion();
@@ -47,11 +42,6 @@ public class ResponsableDao extends BaseDao implements IResponsableDao {
 		return getResult();
 	}
 
-	/**
-	 * Méthode permettant de mettre à jour un responsable dans la base de données
-	 * @param r un responsable
-	 * @return un entier validant ou non l'opération
-	 */
 	@Override
 	public int update(Responsable r) throws DaoException {
 		connexion();
@@ -80,11 +70,6 @@ public class ResponsableDao extends BaseDao implements IResponsableDao {
 		return getResult();
 	}
 
-	/**
-	 * Methode permettant la supression d'un responsable dans la base de données
-	 * @param id l'identifiant d'un responsable
-	 * @return un entier validant ou non l'opération
-	 */
 	@Override
 	public int delete(int id) throws DaoException  {
 		connexion();
@@ -105,11 +90,6 @@ public class ResponsableDao extends BaseDao implements IResponsableDao {
 		return getResult();
 	}
 
-	/**
-	 * Méthode permettant la récupération d'un responsable de la base de données par son identifiant
-	 * @param id identifiant du reponsable
-	 * @return un responsable
-	 */
 	@Override
 	public Responsable get(int id) throws DaoException {
 		connexion();
@@ -131,11 +111,6 @@ public class ResponsableDao extends BaseDao implements IResponsableDao {
 		return res;
 	}
 
-	/**
-	 * Mérhode permettant la récupération de tous les responsables de la base de données
-	 * @return tous les responsables
-	 * @throws SQLException exception sql
-	 */
 	@Override
 	public Set<Responsable> getAll() throws DaoException {
 		connexion();

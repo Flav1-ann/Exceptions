@@ -86,10 +86,10 @@ public class PageAuthentification extends Fenetre {
     }
 
     /**
-     * Validate boolean.
+     * Validate.
      *
      * @param emailStr the email str
-     * @throw EmailFormatException
+     * @throws EmailFormatException the email format exception
      */
     public static void validate(String emailStr) throws EmailFormatException {
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);

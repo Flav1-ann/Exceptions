@@ -4,49 +4,54 @@ import java.util.Set;
 
 import eu.ensup.dao.exceptions.DaoException;
 
+/**
+ * The interface Dao.
+ *
+ * @param <T> the type parameter
+ */
 public interface IDao<T>
 {
-	/**
-	 * Create the entity as a parameter in the database
-	 * 
-	 * @param entity
-	 * @return type of return of the request
-	 * @throws DaoException
-	 */
-	int create(T entity) throws DaoException;
-	
-	/**
-	 * Update the entity as a parameter in the database
-	 * 
-	 * @param entity
-	 * @return type of return of the request
-	 * @throws DaoException
-	 */
-	int update(T entity) throws DaoException;
-	
-	/**
-	 * Remove the entity whose index is in parameter from the database
-	 * 
-	 * @param indice
-	 * @return type of return of the request
-	 * @throws DaoException
-	 */
-	int delete(int indice) throws DaoException;
-	
-	/**
-	 * Get the entity whose index is in parameter
-	 * 
-	 * @param indice
-	 * @return entity
-	 * @throws DaoException
-	 */
-	T get(int indice) throws DaoException;
-	
-	/**
-	 * Get all entity in the database
-	 * 
-	 * @return set of entity
-	 * @throws DaoException
-	 */
-	Set<T> getAll() throws DaoException;
+    /**
+     * Create int.
+     *
+     * @param entity the entity
+     * @return the int
+     * @throws DaoException the dao exception
+     */
+    int create(T entity) throws DaoException;
+
+    /**
+     * Update int.
+     *
+     * @param entity the entity
+     * @return the int
+     * @throws DaoException the dao exception
+     */
+    int update(T entity) throws DaoException;
+
+    /**
+     * Delete int.
+     *
+     * @param indice the indice
+     * @return the int
+     * @throws DaoException the dao exception
+     */
+    int delete(int indice) throws DaoException;
+
+    /**
+     * Get t.
+     *
+     * @param indice the indice
+     * @return the t
+     * @throws DaoException the dao exception
+     */
+    T get(int indice) throws DaoException;
+
+    /**
+     * Gets all.
+     *
+     * @return the all
+     * @throws DaoException the dao exception
+     */
+    Set<T> getAll() throws DaoException;
 }

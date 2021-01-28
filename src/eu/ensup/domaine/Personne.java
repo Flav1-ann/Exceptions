@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Classe métier représentant une personne
+ * The type Personne.
  */
 public class Personne {
 
@@ -15,19 +15,19 @@ public class Personne {
     private String telephone;
 
     /**
-     * Constructeur vide
+     * Instantiates a new Personne.
      */
     public Personne() {
     }
 
     /**
-     * Constructeur avec toutes les propriétés
+     * Instantiates a new Personne.
      *
      * @param id        the id
-     * @param nom       le nom de la personne
-     * @param email     l'email de la personne
-     * @param adresse   l'adresse de la personne
-     * @param telephone le téléphone de la personne
+     * @param nom       the nom
+     * @param email     the email
+     * @param adresse   the adresse
+     * @param telephone the telephone
      */
     public Personne(int id,String nom, String email, String adresse, String telephone) {
         this.id = id;
@@ -56,7 +56,7 @@ public class Personne {
     /**
      * Gets id.
      *
-     * @return l 'état de l'id
+     * @return the id
      */
     public int getId() {
         return id;
@@ -65,7 +65,7 @@ public class Personne {
     /**
      * Sets id.
      *
-     * @param id le nouvel id de la personne
+     * @param id the id
      */
     public void setId(int id) {
         this.id = id;
@@ -74,7 +74,7 @@ public class Personne {
     /**
      * Gets nom.
      *
-     * @return l 'état du nom
+     * @return the nom
      */
     public String getNom() {
         return nom;
@@ -83,7 +83,7 @@ public class Personne {
     /**
      * Sets nom.
      *
-     * @param nom le nouveau nom de la personne
+     * @param nom the nom
      */
     public void setNom(String nom) {
         this.nom = nom;
@@ -92,7 +92,7 @@ public class Personne {
     /**
      * Gets email.
      *
-     * @return l 'état de l'email
+     * @return the email
      */
     public String getEmail() {
         return email;
@@ -101,7 +101,7 @@ public class Personne {
     /**
      * Sets email.
      *
-     * @param email le nouvel email de la personne
+     * @param email the email
      */
     public void setEmail(String email) {
         this.email = email;
@@ -110,7 +110,7 @@ public class Personne {
     /**
      * Gets adresse.
      *
-     * @return l 'état de l'adresse
+     * @return the adresse
      */
     public String getAdresse() {
         return adresse;
@@ -119,7 +119,7 @@ public class Personne {
     /**
      * Sets adresse.
      *
-     * @param adresse la nouvelle adresse de la personne
+     * @param adresse the adresse
      */
     public void setAdresse(String adresse) {
         this.adresse = adresse;
@@ -128,7 +128,7 @@ public class Personne {
     /**
      * Gets telephone.
      *
-     * @return l 'état du téléphone
+     * @return the telephone
      */
     public String getTelephone() {
         return telephone;
@@ -143,10 +143,6 @@ public class Personne {
         this.telephone = telephone;
     }
 
-    /**
-     * Méthode permettant d'afficher l'état de l'objet
-     * @return retourne l'état sous forme de string
-     */
     @Override
     public String toString() {
         return "id=" + id + '\n' +

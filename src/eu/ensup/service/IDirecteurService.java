@@ -11,7 +11,7 @@ import java.util.Set;
 
 
 /**
- * Interface du service Directeur
+ * The interface Directeur service.
  */
 public interface IDirecteurService extends IService<Directeur>
 {

@@ -1,9 +1,7 @@
 package eu.ensup.domaine;
 
 /**
- * Classe métier représentant une personne physique et qui étend une personne
- *
- * @see Personne
+ * The type Personne physique.
  */
 public class PersonnePhysique extends Personne {
 
@@ -12,7 +10,7 @@ public class PersonnePhysique extends Personne {
     private String salt;
 
     /**
-     * Constructeur vide
+     * Instantiates a new Personne physique.
      */
     public PersonnePhysique() {
     }
@@ -57,7 +55,7 @@ public class PersonnePhysique extends Personne {
     /**
      * Gets prenom.
      *
-     * @return l 'état du prénom
+     * @return the prenom
      */
     public String getPrenom() {
         return prenom;
@@ -66,7 +64,7 @@ public class PersonnePhysique extends Personne {
     /**
      * Sets prenom.
      *
-     * @param prenom le nouveau prénom
+     * @param prenom the prenom
      */
     public void setPrenom(String prenom) {
         this.prenom = prenom;
@@ -75,7 +73,7 @@ public class PersonnePhysique extends Personne {
     /**
      * Gets mot de passe.
      *
-     * @return l 'état du mot de passe
+     * @return the mot de passe
      */
     public String getMotDePasse() {
         return motDePasse;
@@ -84,7 +82,7 @@ public class PersonnePhysique extends Personne {
     /**
      * Sets mot de passe.
      *
-     * @param motDePasse le nouveau mot de passe
+     * @param motDePasse the mot de passe
      */
     public void setMotDePasse(String motDePasse) {
         this.motDePasse = motDePasse;
@@ -93,7 +91,7 @@ public class PersonnePhysique extends Personne {
     /**
      * Gets salt.
      *
-     * @return l 'état du salt
+     * @return the salt
      */
     public String getSalt() {
         return salt;
@@ -102,16 +100,12 @@ public class PersonnePhysique extends Personne {
     /**
      * Sets salt.
      *
-     * @param salt le nouveau salt
+     * @param salt the salt
      */
     public void setSalt(String salt) {
         this.salt = salt;
     }
 
-    /**
-     * Méthode affichant l'état d'une personne physique
-     * @return l'état de la personne physique sous forme de string
-     */
     @Override
     public String toString() {
 

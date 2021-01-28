@@ -17,7 +17,7 @@ public interface IResponsableDao extends IDao<Responsable>
 	 *
 	 * @param email the email
 	 * @return the credential by email
-	 * @throws SQLException the sql exception
+	 * @throws DaoException the dao exception
 	 */
 	Responsable getCredentialByEmail(String email) throws DaoException;
 
