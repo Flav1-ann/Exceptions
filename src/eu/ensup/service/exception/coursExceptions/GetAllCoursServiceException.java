@@ -8,7 +8,7 @@ import eu.ensup.service.exception.ServiceException;
 
 public class GetAllCoursServiceException extends ServiceException {
     public GetAllCoursServiceException() {
-        super();
-        BaseService.logger.info("Une erreur à empêcher la suppression du cours");
+        super(BaseService.messageExceptionCoursGetAll);
+        BaseService.logger.info(BaseService.messageExceptionCoursGetAll);
     }
 }

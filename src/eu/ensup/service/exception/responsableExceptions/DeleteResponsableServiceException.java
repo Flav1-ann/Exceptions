@@ -12,7 +12,7 @@ public class DeleteResponsableServiceException extends ServiceException {
      *
      */
     public DeleteResponsableServiceException() {
-        super("Une erreur à empêcher la suppression de l'étudiant");
-        BaseService.logger.info("Une erreur à empêcher la suppression de l'étudiant");
+        super(BaseService.messageExceptionResponsableDelete);
+        BaseService.logger.info(BaseService.messageExceptionResponsableDelete);
     }
 }

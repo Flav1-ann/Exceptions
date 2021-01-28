@@ -6,7 +6,7 @@ import eu.ensup.service.exception.ServiceException;
 
 public class DeleteCoursServiceException extends ServiceException {
     public DeleteCoursServiceException() {
-        super();
-        BaseService.logger.info("Une erreur à empêcher la suppression du cours");
+        super(BaseService.messageExceptionCoursDelete);
+        BaseService.logger.info(BaseService.messageExceptionCoursDelete);
     }
 }

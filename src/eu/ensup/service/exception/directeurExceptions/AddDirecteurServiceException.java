@@ -6,7 +6,7 @@ import eu.ensup.service.exception.ServiceException;
 
 public class AddDirecteurServiceException extends ServiceException {
     public AddDirecteurServiceException() {
-        super();
-        BaseService.logger.info("Une erreur à empêcher l'ajout du directeur");
+        super(BaseService.messageExceptionDirecteurAdd);
+        BaseService.logger.info(BaseService.messageExceptionDirecteurAdd);
     }
 }

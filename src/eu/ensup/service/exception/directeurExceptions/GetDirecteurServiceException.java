@@ -6,7 +6,7 @@ import eu.ensup.service.exception.ServiceException;
 
 public class GetDirecteurServiceException extends ServiceException {
     public GetDirecteurServiceException() {
-        super();
-        BaseService.logger.info("Une erreur à empêcher l'accès aux informations du directeur");
+        super(BaseService.messageExceptionDirecteurGet);
+        BaseService.logger.info(BaseService.messageExceptionDirecteurGet);
     }
 }

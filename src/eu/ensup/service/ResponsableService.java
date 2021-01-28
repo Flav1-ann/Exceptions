@@ -144,7 +144,6 @@ public class ResponsableService implements IResponsableService {
         if(r != null) {
             errorCode = personnePhysiqueService.validPersonnePhysique(r,password);
         }
-
         if(r == null || errorCode == 0){
             throw new CredentialException();
         }

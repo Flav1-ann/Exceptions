@@ -6,7 +6,7 @@ import eu.ensup.service.exception.ServiceException;
 
 public class AddEtudiantServiceException extends ServiceException {
     public AddEtudiantServiceException() {
-        super("Une erreur à empêcher l'ajout de l'étudiant");
-        BaseService.logger.info("Une erreur à empêcher l'ajout de l'étudiant");
+        super(BaseService.messageExceptionEtudiantAdd);
+        BaseService.logger.info(BaseService.messageExceptionEtudiantAdd);
     }
 }

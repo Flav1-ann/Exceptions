@@ -6,7 +6,7 @@ import eu.ensup.service.exception.ServiceException;
 
 public class UpdateCoursServiceException extends ServiceException {
     public UpdateCoursServiceException() {
-        super();
-        BaseService.logger.info("Une erreur à empêcher la modification du cours");
+        super(BaseService.messageExceptionCoursUpdate);
+        BaseService.logger.info(BaseService.messageExceptionCoursUpdate);
     }
 }

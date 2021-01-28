@@ -6,7 +6,7 @@ import eu.ensup.service.exception.ServiceException;
 
 public class DeleteDirecteurServiceException extends ServiceException {
     public DeleteDirecteurServiceException() {
-        super();
-        BaseService.logger.info("Une erreur à empêcher la supression du directeur");
+        super(BaseService.messageExceptionDirecteurDelete);
+        BaseService.logger.info(BaseService.messageExceptionDirecteurDelete);
     }
 }

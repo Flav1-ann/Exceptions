@@ -6,7 +6,7 @@ import eu.ensup.service.exception.ServiceException;
 
 public class GetEtudiantServiceException extends ServiceException {
     public GetEtudiantServiceException() {
-        super("Une erreur à empêcher l'accès aux informations de l'étudiants");
-        BaseService.logger.info("Une erreur à empêcher l'accès aux informations de l'étudiants");
+        super(BaseService.messageExceptionEtudiantGet);
+        BaseService.logger.info(BaseService.messageExceptionEtudiantGet);
     }
 }
