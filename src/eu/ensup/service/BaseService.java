@@ -14,7 +14,7 @@ public class BaseService {
      * The constant messageExceptionCoursCoursAdd.
      */
 // cours
-    public static String messageExceptionCoursCoursAdd = "Une erreur à empêcher l'ajout du cours";
+    public static String messageExceptionCoursAdd = "Une erreur à empêcher l'ajout du cours";
     /**
      * The constant messageExceptionCoursDelete.
      */
