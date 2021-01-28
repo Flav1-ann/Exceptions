@@ -1,8 +1,0 @@
-2021-01-08 10:21:09 INFO  - l'étudiant Annaix flavien a été créé.
-2021-01-08 10:21:22 INFO  - l'étudiant Annaix audrey a été modifié.
-2021-01-08 10:22:01 INFO  - l'étudiant a été supprimé.
-2021-01-08 13:10:31 INFO  - l'étudiant Ananix flavien a été créé.
-2021-01-08 13:10:48 INFO  - l'étudiant Ananix maxime a été modifié.
-2021-01-08 13:23:41 INFO  - l'étudiant Ananix flavien a été modifié.
-2021-01-08 13:23:56 INFO  - l'étudiant dzaa eraze a été créé.
-2021-01-08 13:24:10 INFO  - l'étudiant a été supprimé.

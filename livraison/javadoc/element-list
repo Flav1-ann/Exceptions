@@ -1,0 +1,12 @@
+eu.ensup.dao
+eu.ensup.dao.exceptions
+eu.ensup.domaine
+eu.ensup.presentation
+eu.ensup.presentation.vues
+eu.ensup.service
+eu.ensup.service.exception
+eu.ensup.service.exception.coursExceptions
+eu.ensup.service.exception.directeurExceptions
+eu.ensup.service.exception.enseignantExceptions
+eu.ensup.service.exception.etudiantExceptions
+eu.ensup.service.exception.responsableExceptions
