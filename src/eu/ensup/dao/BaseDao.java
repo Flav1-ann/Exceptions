@@ -46,9 +46,9 @@ public class BaseDao {
         ResourceBundle bundle = ResourceBundle.getBundle("eu.ensup.domaine.properties.config");
         PropertyConfigurator.configure(bundle.getString("log.pathconfig"));
         //PropertyConfigurator.configureAndWatch("" + bundle.getString("log.pathconfig"));
-        this.url = "jdbc:mysql://vps-0c0ccce5.vps.ovh.net:3306/etablissement_scolaire?serverTimezone=Europe/Berlin";
-        this.login = "web";
-        this.password = "Ensup2020*";
+        this.url = bundle.getString("Bdd.url");
+        this.login = bundle.getString("Bdd.login");
+        this.password = bundle.getString("Bdd.password");
     }
 
     /**
