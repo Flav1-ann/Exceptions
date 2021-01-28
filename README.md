@@ -51,7 +51,7 @@ Il faut ensuite importer dans la base de données le fichier "dump.sql". Ce fich
 
 Ensuite ouvrez l’invite de commande et rendez vous dans le dossier "livraison" :
 
-depuis la racine du git :  cd livraison/Etablissement_Scolaire.jar
+depuis la racine du git :  cd livraison\Etablissement_Scolaire.jar
 
 Maintenant, executez la commande :
 java -jar Etablissement_Scolaire.jar
@@ -63,7 +63,7 @@ java -jar Etablissement_Scolaire.jar
 Le programme est enfin prêt à être utilisé.
 
 # Documentation, JavaDOC
-Une JavaDoc existe. Vous la trouverez dans le dossier Etablissement_Scolaire\out\JAVADOC\index.html
+Une JavaDoc existe. Vous la trouverez dans le dossier livraison\javadoc\index.html
 
 # Logs
 Vous retrouverez les logs à l'endroit de l'execution de la commande de lancement soit par défaut: 
