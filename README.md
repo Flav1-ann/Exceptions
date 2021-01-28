@@ -2,39 +2,6 @@
 
 # Installation
 
-Pour l'installation de l'application vous avez le choix entre :
-
- - utiliser docker et le script d'installation et d'excution.
-
-- installer l'application et ses prérequis manuellement.
-
-## Avec Docker
-
-### Installation de docker
-Si vous n'avez pas docker d'installer sur votre machine vous pouvez l'installer.
-
-#### Sous Windows
-
-##### Windows professionnel
-Vous pouvez installer docker desktop que vous trouverez [ici](https://www.docker.com/products/docker-desktop)
-
-##### Windows familial
-Vous pouvez utiliser docker toolbox, même s'il est déprécié, vous pouvez quand même l'utiliser que vous trouverez [ici](https://github.com/docker/toolbox/releases)
-Si vous avez WSL 2 d'installer sur votre machine vous pouvez installer docker desktop avec. vous trouverez les étapes à suivre si vous souhaitez le faire 
-[ici](https://docs.docker.com/docker-for-windows/install-windows-home/)
-
-#### Sous Linux
-  La documentation officiel explique comment installer docker sous linux. Vous pourrez choisir la distribution que vous utiliser. Vous trouverez la documentation [ici](https://docs.docker.com/engine/install/)
-
-#### Sous MacOS
- vous pouvez installer docker desktop que vous trouverez [ici](https://www.docker.com/products/docker-desktop)
-
-### Lancement de l'application
-
-Après avoir installé docker sur votre machine et l'avoir lancé, il vous suffit d'executer le script correspondant à votre système d'exploitation
-
-## Sans Docker
-
 ### Les Prérequis sont
 
 - Une base de données MySQL
