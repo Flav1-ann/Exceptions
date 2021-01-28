@@ -17,6 +17,7 @@ public interface ICoursService extends IService<Cours>
      * @param c the c
      * @param e the e
      * @return the int
+     * @throws ServiceException the service exception
      */
     int inscription(Cours c, Etudiant e) throws  ServiceException;
 
@@ -25,6 +26,7 @@ public interface ICoursService extends IService<Cours>
      *
      * @param idEtudiant the id etudiant
      * @return the cours etudiant
+     * @throws ServiceException the service exception
      */
     Set<Cours> getCoursEtudiant(int idEtudiant) throws  ServiceException;
 }

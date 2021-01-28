@@ -10,7 +10,7 @@ import eu.ensup.dao.exceptions.DaoException;
 import eu.ensup.domaine.Etudiant;
 
 /**
- * The type Data base etudiant dao.
+ * The type Etudiant dao.
  */
 public class EtudiantDao extends BaseDao implements IEtudiantDao {
 	@Override

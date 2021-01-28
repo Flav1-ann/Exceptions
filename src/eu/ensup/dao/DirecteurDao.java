@@ -9,19 +9,10 @@ import eu.ensup.dao.exceptions.DaoException;
 import eu.ensup.domaine.Directeur;
 
 /**
- * Classe dao étendant la classe BaseDao et implémentant l'interface IDirecteurDao gérant le CRUD d'un directeur
- *
- * @see BaseDao
- * @see IDirecteurDao
+ * The type Directeur dao.
  */
 public class DirecteurDao extends BaseDao implements IDirecteurDao {
 
-	/**
-	 * Méthode permettant de créer dans la base de données un directeur
-	 * @param d un directeur
-	 * @return un entier représentant le résultat
-	 * @throws SQLException exception SQL
-	 */
 	@Override
 	public int create(Directeur d) throws DaoException {
 		connexion();
@@ -44,12 +35,6 @@ public class DirecteurDao extends BaseDao implements IDirecteurDao {
 		return getResult();
 	}
 
-	/**
-	 * Méthode permettant de mettre à jour un directeur dans la base de données
-	 * @param d un directeur
-	 * @return un entier représentant le résultat
-	 * @throws SQLException exception SQL
-	 */
 	@Override
 	public int update(Directeur d) throws DaoException {
 		connexion();
@@ -71,12 +56,6 @@ public class DirecteurDao extends BaseDao implements IDirecteurDao {
 		disconnect();
 		return getResult();
 	}
-	/**
-	 * Methode permettant la supression d'un directeur dans la base de données
-	 * @param id identifiant du directeur
-	 * @return un entier représentant le résultat
-	 * @throws SQLException exception SQL
-	 */
 	@Override
 	public int delete(int id) throws DaoException {
 		connexion();
@@ -90,12 +69,6 @@ public class DirecteurDao extends BaseDao implements IDirecteurDao {
 		disconnect();
 		return getResult();
 	}
-	/**
-	 * Méthode permettant la récupération d'un directeur de la base de données par son identifiant
-	 * @param id identifiant du directeur
-	 * @return un directeur
-	 * @throws SQLException exception SQL
-	 */
 	@Override
 	public Directeur get(int id) throws DaoException {
 		Directeur d1 = new Directeur();
@@ -125,11 +98,6 @@ public class DirecteurDao extends BaseDao implements IDirecteurDao {
 
 
 
-	/**
-	 * Mérhode permettant la récupération de tous les directeurs de la base de données
-	 * @return une liste de directeurs
-	 * @throws SQLException exception SQL
-	 */
 	@Override
 	public Set<Directeur> getAll() throws DaoException {
 		connexion();

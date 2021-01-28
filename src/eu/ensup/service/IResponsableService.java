@@ -32,17 +32,19 @@ public interface IResponsableService extends IService<Responsable>
      *
      * @param email the email
      * @return the credential by email
-     * @throws ServiceException the sql exception
+     * @throws ServiceException the service exception
      */
     Responsable getCredentialByEmail(String email) throws ServiceException;
 
     /**
-     * Valid directeur authentification int.
+     * Valid authentification int.
      *
-     * @param r        the Responsable
+     * @param r        the r
      * @param password the password
      * @return the int
      * @throws NoSuchAlgorithmException the no such algorithm exception
+     * @throws CredentialException      the credential exception
+     * @throws EmailFormatException     the email format exception
      */
     int validAuthentification(Responsable r, String password) throws NoSuchAlgorithmException, CredentialException, EmailFormatException;
 

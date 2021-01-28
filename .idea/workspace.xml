@@ -20,9 +20,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc31ad25-ef89-4e6c-9c74-5ffacc9fe0e0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" afterPath="$PROJECT_DIR$/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/dao/BaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/dao/BaseDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/dao/DirecteurDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/dao/DirecteurDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/dao/EtudiantDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/dao/EtudiantDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/dao/ICoursDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/dao/ICoursDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/dao/IDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/dao/IDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/dao/IDirecteurDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/dao/IDirecteurDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/dao/IResponsableDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/dao/IResponsableDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/dao/ResponsableDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/dao/ResponsableDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/dao/exceptions/CRUDException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/dao/exceptions/CRUDException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/dao/exceptions/DaoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/dao/exceptions/DaoException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/domaine/Directeur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/domaine/Directeur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/domaine/Personne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/domaine/Personne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/domaine/PersonnePhysique.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/domaine/PersonnePhysique.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/presentation/vues/PageAssocierEtudiant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/presentation/vues/PageAssocierEtudiant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/presentation/vues/PageAuthentification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/presentation/vues/PageAuthentification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/presentation/vues/PageListing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/presentation/vues/PageListing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eu/ensup/service/BaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/service/BaseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/service/DirecteurService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/service/DirecteurService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/service/ICoursService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/service/ICoursService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/service/IDirecteurService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/service/IDirecteurService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/service/IPersonnePhysiqueService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/service/IPersonnePhysiqueService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/service/IResponsableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/service/IResponsableService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/service/IService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/service/IService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/service/PersonnePhysiqueService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/service/PersonnePhysiqueService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eu/ensup/service/ResponsableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/service/ResponsableService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/service/exception/CredentialException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/service/exception/CredentialException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/service/exception/EmailFormatException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/service/exception/EmailFormatException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eu/ensup/service/exception/ServiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/service/exception/ServiceException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eu/ensup/service/exception/coursExceptions/AddCoursServiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/service/exception/coursExceptions/AddCoursServiceException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eu/ensup/service/exception/coursExceptions/DeleteCoursServiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/service/exception/coursExceptions/DeleteCoursServiceException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eu/ensup/service/exception/coursExceptions/GetAllCoursServiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/service/exception/coursExceptions/GetAllCoursServiceException.java" afterDir="false" />
@@ -46,7 +74,6 @@
       <change beforePath="$PROJECT_DIR$/src/eu/ensup/service/exception/etudiantExceptions/GetEtudiantServiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/service/exception/etudiantExceptions/GetEtudiantServiceException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eu/ensup/service/exception/etudiantExceptions/UpdateEtudiantServiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/service/exception/etudiantExceptions/UpdateEtudiantServiceException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eu/ensup/service/exception/responsableExceptions/AddResponsableServiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/service/exception/responsableExceptions/AddResponsableServiceException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eu/ensup/service/exception/responsableExceptions/CredentialException.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eu/ensup/service/exception/responsableExceptions/DeleteResponsableServiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/service/exception/responsableExceptions/DeleteResponsableServiceException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eu/ensup/service/exception/responsableExceptions/GetAllResponsableServiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/service/exception/responsableExceptions/GetAllResponsableServiceException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eu/ensup/service/exception/responsableExceptions/GetResponsableServiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/ensup/service/exception/responsableExceptions/GetResponsableServiceException.java" afterDir="false" />
@@ -206,6 +233,14 @@
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1611762564867" />
     <state width="1493" height="205" key="GridCell.Tab.0.right/0.0.1536.832@0.0.1536.832" timestamp="1611680316754" />
+    <state x="147" y="66" key="MergeDialog" timestamp="1611832525061">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state x="147" y="66" key="MergeDialog/0.0.1536.832@0.0.1536.832" timestamp="1611832525061" />
+    <state x="407" y="178" key="MultipleFileMergeDialog" timestamp="1611832525073">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state x="407" y="178" key="MultipleFileMergeDialog/0.0.1536.832@0.0.1536.832" timestamp="1611832525073" />
     <state x="249" y="0" key="SettingsEditor" timestamp="1611673822051">
       <screen x="0" y="0" width="1536" height="832" />
     </state>

@@ -4,49 +4,54 @@ import java.util.Set;
 
 import eu.ensup.service.exception.ServiceException;
 
+/**
+ * The interface Service.
+ *
+ * @param <T> the type parameter
+ */
 public interface IService<T>
 {
 	/**
-	 * Create the entity as a parameter in the database
-	 * 
-	 * @param entity
-	 * @return type of return of the request
-	 * @throws DaoException
+	 * Create int.
+	 *
+	 * @param entity the entity
+	 * @return the int
+	 * @throws ServiceException the service exception
 	 */
 	int create(T entity) throws ServiceException;
-	
+
 	/**
-	 * Update the entity as a parameter in the database
-	 * 
-	 * @param entity
-	 * @return type of return of the request
-	 * @throws DaoException
+	 * Update int.
+	 *
+	 * @param entity the entity
+	 * @return the int
+	 * @throws ServiceException the service exception
 	 */
 	int update(T entity) throws ServiceException;
-	
+
 	/**
-	 * Remove the entity whose index is in parameter from the database
-	 * 
-	 * @param indice
-	 * @return type of return of the request
-	 * @throws DaoException
+	 * Delete int.
+	 *
+	 * @param indice the indice
+	 * @return the int
+	 * @throws ServiceException the service exception
 	 */
 	int delete(int indice) throws ServiceException;
-	
+
 	/**
-	 * Get the entity whose index is in parameter
-	 * 
-	 * @param indice
-	 * @return entity
-	 * @throws DaoException
+	 * Get t.
+	 *
+	 * @param indice the indice
+	 * @return the t
+	 * @throws ServiceException the service exception
 	 */
 	T get(int indice) throws ServiceException;
-	
+
 	/**
-	 * Get all entity in the database
-	 * 
-	 * @return set of entity
-	 * @throws DaoException
+	 * Gets all.
+	 *
+	 * @return the all
+	 * @throws ServiceException the service exception
 	 */
 	Set<T> getAll() throws ServiceException;
 }

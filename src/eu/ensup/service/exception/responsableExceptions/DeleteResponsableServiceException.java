@@ -4,12 +4,12 @@ import eu.ensup.service.BaseService;
 
 import eu.ensup.service.exception.ServiceException;
 
+/**
+ * The type Delete responsable service exception.
+ */
 public class DeleteResponsableServiceException extends ServiceException {
     /**
-     * Constructs a new exception with the specified detail message.  The
-     * cause is not initialized, and may subsequently be initialized by
-     * a call to {@link #initCause}.
-     *
+     * Instantiates a new Delete responsable service exception.
      */
     public DeleteResponsableServiceException() {
         super(BaseService.messageExceptionResponsableDelete);
