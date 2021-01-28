@@ -5,8 +5,9 @@ import eu.ensup.domaine.Etudiant;
 import eu.ensup.domaine.Responsable;
 import eu.ensup.service.CoursService;
 import eu.ensup.service.EtudiantService;
-import eu.ensup.service.exceptions.CoursServiceException;
-import eu.ensup.service.exceptions.EtudiantServiceException;
+import eu.ensup.service.exception.coursExceptions.GetAllCoursServiceException;
+import eu.ensup.service.exception.coursExceptions.InscriptionCoursServiceException;
+import eu.ensup.service.exception.etudiantExceptions.GetAllEtudiantServiceException;
 import jdk.management.jfr.EventTypeInfo;
 
 import javax.swing.*;
@@ -53,7 +54,7 @@ public class PageAssocierEtudiant extends  Fenetre{
      *
      * @param user the user
      */
-    public PageAssocierEtudiant(Responsable user) throws CoursServiceException {
+    public PageAssocierEtudiant(Responsable user) throws InscriptionCoursServiceException, GetAllCoursServiceException {
         super("Inscrire un étudiant pour un cour",user);
 
         this.setContentPane(panelMain);
@@ -76,15 +77,15 @@ public class PageAssocierEtudiant extends  Fenetre{
                 int result = 0;
                 try {
                     result = coursService.inscription( coursSelected,etudiantSelected);
-                } catch (CoursServiceException coursServiceException) {
-                    error_label.setText(coursServiceException.getMessage());
+                } catch (InscriptionCoursServiceException inscriptionCoursServiceException) {
+                    error_label.setText(inscriptionCoursServiceException.getMessage());
                 }
                 if ( result == 1){
                     _updateListEtudiant();
                     try {
                         _updateListCours();
-                    } catch (CoursServiceException coursServiceException) {
-                        error_label.setText(coursServiceException.getMessage());
+                    } catch (GetAllCoursServiceException getAllCoursServiceException) {
+                        error_label.setText(getAllCoursServiceException.getMessage());
                     }
                     JOptionPane.showMessageDialog(null,
                             "L' association a été effectuée avec succès !");
@@ -113,11 +114,11 @@ public class PageAssocierEtudiant extends  Fenetre{
             for (Etudiant etudiant: etudiants) {
                 comboxListeEtudiant.addItem(etudiant);
             }
-        } catch (EtudiantServiceException etudiantServiceException) {
-            error_label.setText(etudiantServiceException.getMessage());
+        } catch (GetAllEtudiantServiceException getAllEtudiantServiceException) {
+            error_label.setText(getAllEtudiantServiceException.getMessage());
         }
     }
-    private void _updateListCours() throws CoursServiceException {
+    private void _updateListCours() throws GetAllCoursServiceException {
         comboBoxCours.removeAllItems();
         comboBoxCours.addItem("");
         cours = new ArrayList<>();

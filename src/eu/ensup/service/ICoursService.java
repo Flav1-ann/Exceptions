@@ -3,8 +3,7 @@ package eu.ensup.service;
 import eu.ensup.dao.exceptions.DatabaseException;
 import eu.ensup.domaine.Cours;
 import eu.ensup.domaine.Etudiant;
-import eu.ensup.service.exceptions.AddCoursServiceException;
-import eu.ensup.service.exceptions.CoursServiceException;
+import eu.ensup.service.exception.coursExceptions.*;
 
 import java.sql.ResultSet;
 
@@ -21,7 +20,7 @@ public interface ICoursService {
      * @param cours the cours
      * @return the int
      */
-    int addCours(Cours cours) throws AddCoursServiceException;
+    int addCours(Cours cours) throws  AddCoursServiceException;
 
     /**
      * Update cours int.
@@ -29,7 +28,7 @@ public interface ICoursService {
      * @param cours the cours
      * @return the int
      */
-    int updateCours(Cours cours) throws CoursServiceException;
+    int updateCours(Cours cours) throws UpdateCoursServiceException;
 
     /**
      * Delete cours int.
@@ -37,7 +36,7 @@ public interface ICoursService {
      * @param cours the cours
      * @return the int
      */
-    int deleteCours(Cours cours) throws CoursServiceException;
+    int deleteCours(Cours cours) throws  DeleteCoursServiceException;
 
     /**
      * Gets cours.
@@ -45,14 +44,14 @@ public interface ICoursService {
      * @param id the id
      * @return the cours
      */
-    Cours getCours (int id) throws CoursServiceException;
+    Cours getCours (int id) throws  GetCoursServiceException;
 
     /**
      * Find all list.
      *
      * @return the list
      */
-    List<Cours> findAll() throws CoursServiceException;
+    List<Cours> findAll() throws  GetAllCoursServiceException;
 
     /**
      * Inscription int.
@@ -61,7 +60,7 @@ public interface ICoursService {
      * @param e the e
      * @return the int
      */
-    int inscription(Cours c, Etudiant e) throws CoursServiceException;
+    int inscription(Cours c, Etudiant e) throws  InscriptionCoursServiceException;
 
     /**
      * Gets cours etudiant.
@@ -69,5 +68,5 @@ public interface ICoursService {
      * @param idEtudiant the id etudiant
      * @return the cours etudiant
      */
-    List<Cours> getCoursEtudiant(int idEtudiant) throws CoursServiceException;
+    List<Cours> getCoursEtudiant(int idEtudiant) throws  GetCoursEtudiantServiceException;
 }

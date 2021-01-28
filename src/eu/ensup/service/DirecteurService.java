@@ -1,7 +1,12 @@
 package eu.ensup.service;
 
 import eu.ensup.dao.DirecteurDao;
+import eu.ensup.dao.exceptions.DaoException;
 import eu.ensup.domaine.Directeur;
+import eu.ensup.service.exception.CredentialException;
+import eu.ensup.service.exception.coursExceptions.UpdateCoursServiceException;
+import eu.ensup.service.exception.directeurExceptions.*;
+import eu.ensup.service.exception.etudiantExceptions.AddEtudiantServiceException;
 
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
@@ -29,13 +34,24 @@ public class DirecteurService implements IDirecteurService {
      * @throws SQLException exception SQL
      */
     @Override
-    public int addDirecteur(Directeur d) throws SQLException, NoSuchAlgorithmException {
+    public int addDirecteur(Directeur d) throws CredentialException, AddDirecteurServiceException {
         byte[] salt = personnePhysiqueService.createSalt();
-        String hash = personnePhysiqueService.generateHashPassword(d.getMotDePasse(),salt);
+        String hash = null;
+        try {
+            hash = personnePhysiqueService.generateHashPassword(d.getMotDePasse(),salt);
+        } catch (NoSuchAlgorithmException e) {
+            throw new CredentialException();
+        }
+
 
         d.setSalt(Base64.getEncoder().encodeToString(salt));
         d.setMotDePasse(hash);
-        return directeurDao.createDirecteur(d);
+        try {
+            return directeurDao.createDirecteur(d);
+        }
+        catch (DaoException e) {
+            throw new AddDirecteurServiceException();
+        }
     }
 
     /**
@@ -45,8 +61,12 @@ public class DirecteurService implements IDirecteurService {
      * @throws SQLException exception SQL
      */
     @Override
-    public int updateDirecteur(Directeur d) throws SQLException {
-        return directeurDao.updateDirecteur(d);
+    public int updateDirecteur(Directeur d) throws UpdateDirecteurServiceException {
+        try {
+            return directeurDao.updateDirecteur(d);
+        }catch(DaoException e) {
+            throw new UpdateDirecteurServiceException();
+        }
     }
 
     /**
@@ -56,8 +76,12 @@ public class DirecteurService implements IDirecteurService {
      * @throws SQLException exception SQL
      */
     @Override
-    public int deleteDirecteur(int id) throws SQLException {
-        return directeurDao.deleteDirecteur(id);
+    public int deleteDirecteur(int id) throws DeleteDirecteurServiceException {
+        try {
+            return directeurDao.deleteDirecteur(id);
+        }catch(DaoException e){
+            throw new DeleteDirecteurServiceException();
+        }
     }
 
     /**
@@ -67,8 +91,12 @@ public class DirecteurService implements IDirecteurService {
      * @throws SQLException exception SQL
      */
     @Override
-    public Directeur getDirecteur(int id) throws SQLException {
-        return directeurDao.getDirecteur(id);
+    public Directeur getDirecteur(int id) throws GetDirecteurServiceException {
+        try {
+            return directeurDao.getDirecteur(id);
+        } catch(DaoException e){
+            throw new GetDirecteurServiceException();
+        }
     }
 
 
@@ -78,8 +106,12 @@ public class DirecteurService implements IDirecteurService {
      * @throws SQLException exception SQL
      */
     @Override
-    public Set<Directeur> getAllDirecteurs() throws SQLException {
-        return directeurDao.getAllDirecteurs();
+    public Set<Directeur> getAllDirecteurs() throws GetAllDirecteurServiceException {
+        try {
+            return directeurDao.getAllDirecteurs();
+        }catch(DaoException e){
+            throw new GetAllDirecteurServiceException();
+        }
     }
 
 

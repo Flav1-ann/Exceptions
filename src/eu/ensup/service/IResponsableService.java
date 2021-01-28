@@ -1,7 +1,8 @@
 package eu.ensup.service;
 
 import eu.ensup.domaine.Responsable;
-import eu.ensup.service.exceptions.CredentialException;
+import eu.ensup.service.exception.CredentialException;
+import eu.ensup.service.exception.responsableExceptions.*;
 
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
@@ -20,7 +21,7 @@ public interface IResponsableService {
      * @throws SQLException             the sql exception
      * @throws NoSuchAlgorithmException the no such algorithm exception
      */
-    int addResponsable(Responsable r) throws SQLException, NoSuchAlgorithmException;
+    int addResponsable(Responsable r) throws  CredentialException, AddResponsableServiceException;
 
     /**
      * Update responsable int.
@@ -29,7 +30,7 @@ public interface IResponsableService {
      * @return the int
      * @throws SQLException the sql exception
      */
-    int updateResponsable(Responsable r) throws SQLException;
+    int updateResponsable(Responsable r) throws  UpdateResponsableServiceException;
 
     /**
      * Delete responsable int.
@@ -38,7 +39,7 @@ public interface IResponsableService {
      * @return the int
      * @throws SQLException the sql exception
      */
-    int deleteResponsable(int id) throws SQLException;
+    int deleteResponsable(int id) throws  DeleteResponsableServiceException;
 
     /**
      * Gets responsable.
@@ -47,7 +48,7 @@ public interface IResponsableService {
      * @return the responsable
      * @throws SQLException the sql exception
      */
-    Responsable getResponsable(int id) throws SQLException;
+    Responsable getResponsable(int id) throws GetResponsableServiceException;
 
     /**
      * Gets all responsables.
@@ -55,7 +56,7 @@ public interface IResponsableService {
      * @return the all responsables
      * @throws SQLException the sql exception
      */
-    Set<Responsable> getAllResponsables() throws SQLException;
+    Set<Responsable> getAllResponsables() throws GetAllResponsableServiceException, SQLException;
 
     /**
      * Valid responsable authentification int.

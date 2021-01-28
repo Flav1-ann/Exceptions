@@ -2,12 +2,16 @@ package eu.ensup.service;
 
 import eu.ensup.dao.CoursDao;
 import eu.ensup.dao.ICoursDao;
+import eu.ensup.dao.exceptions.DaoException;
 import eu.ensup.dao.exceptions.DatabaseException;
 import eu.ensup.domaine.Cours;
 
 import eu.ensup.domaine.Etudiant;
-import eu.ensup.service.exceptions.AddCoursServiceException;
-import eu.ensup.service.exceptions.CoursServiceException;
+import eu.ensup.service.exception.coursExceptions.*;
+import eu.ensup.service.exception.etudiantExceptions.AddEtudiantServiceException;
+import eu.ensup.service.exception.etudiantExceptions.DeleteEtudiantServiceException;
+import eu.ensup.service.exception.etudiantExceptions.UpdateEtudiantServiceException;
+
 
 import java.sql.ResultSet;
 import java.util.List;
@@ -21,63 +25,63 @@ public class CoursService implements ICoursService {
     public int addCours(Cours cours) throws AddCoursServiceException {
         try{
             return coursDao.addCours(cours) ;
-        }catch (DatabaseException data) {
+        }catch (DaoException e) {
             throw new AddCoursServiceException();
         }
 
     }
 
     @Override
-    public int updateCours(Cours cours) throws CoursServiceException {
+    public int updateCours(Cours cours) throws UpdateCoursServiceException {
         try{
             return coursDao.updateCours(cours) ;
-        }catch (DatabaseException data) {
-            throw new CoursServiceException(data);
+        }catch (DaoException e) {
+            throw new UpdateCoursServiceException();
         }
     }
 
     @Override
-    public int deleteCours(Cours cours) throws CoursServiceException {
+    public int deleteCours(Cours cours) throws DeleteCoursServiceException {
         try{
             return coursDao.deleteCours(cours) ;
-        }catch (DatabaseException data) {
-            throw new CoursServiceException(data);
+        }catch (DaoException e) {
+            throw new DeleteCoursServiceException();
         }
     }
 
     @Override
-    public Cours getCours(int id) throws CoursServiceException {
+    public Cours getCours(int id) throws GetCoursServiceException {
         try{
             return coursDao.getCours(id) ;
-        }catch (DatabaseException data) {
-            throw new CoursServiceException(data);
+        }catch (DaoException e) {
+            throw new GetCoursServiceException();
         }
     }
 
     @Override
-    public List<Cours> findAll() throws CoursServiceException {
+    public List<Cours> findAll() throws GetAllCoursServiceException {
         try{
             return coursDao.findAll() ;
-        }catch (DatabaseException data) {
-            throw new CoursServiceException(data);
+        }catch (DaoException e) {
+            throw new GetAllCoursServiceException();
         }
     }
 
     @Override
-    public int inscription(Cours c, Etudiant e) throws CoursServiceException {
+    public int inscription(Cours c, Etudiant e) throws InscriptionCoursServiceException {
         try{
             return coursDao.inscription(c, e);
-        }catch (DatabaseException data) {
-            throw new CoursServiceException(data);
+        }catch (DaoException data) {
+            throw new InscriptionCoursServiceException();
         }
     }
 
     @Override
-    public List<Cours> getCoursEtudiant(int idEtudiant) throws CoursServiceException {
+    public List<Cours> getCoursEtudiant(int idEtudiant) throws GetCoursEtudiantServiceException {
         try{
             return coursDao.getCoursEtudiant(idEtudiant);
-        }catch (DatabaseException data) {
-            throw new CoursServiceException(data);
+        }catch (DaoException e) {
+            throw new GetCoursEtudiantServiceException();
         }
     }
 

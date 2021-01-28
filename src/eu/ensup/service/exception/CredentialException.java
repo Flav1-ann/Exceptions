@@ -1,4 +1,4 @@
-package eu.ensup.service.exceptions;
+package eu.ensup.service.exception;
 
 public class CredentialException extends Exception {
 

@@ -4,7 +4,9 @@ import com.toedter.calendar.JDateChooser;
 import eu.ensup.domaine.Etudiant;
 import eu.ensup.domaine.Responsable;
 import eu.ensup.service.EtudiantService;
-import eu.ensup.service.exceptions.EtudiantServiceException;
+import eu.ensup.service.exception.etudiantExceptions.DeleteEtudiantServiceException;
+import eu.ensup.service.exception.etudiantExceptions.GetAllEtudiantServiceException;
+import eu.ensup.service.exception.etudiantExceptions.UpdateEtudiantServiceException;
 
 import javax.swing.*;
 import java.sql.SQLException;
@@ -105,7 +107,7 @@ public class PageEditer extends Fenetre {
                         JOptionPane.showMessageDialog(new JFrame(), message, title, typeMessage);
                     }
 
-                    } catch (EtudiantServiceException etudiantServiceException) {
+                    } catch (UpdateEtudiantServiceException etudiantServiceException) {
                         error_label.setText(etudiantServiceException.getMessage());
                 }
             //}
@@ -131,8 +133,8 @@ public class PageEditer extends Fenetre {
                         _updateListEtudiant();
 
 
-                    } catch (EtudiantServiceException etudiantServiceException) {
-                        error_label.setText(etudiantServiceException.getMessage());
+                    } catch (DeleteEtudiantServiceException deleteEtudiantServiceException) {
+                        error_label.setText(deleteEtudiantServiceException.getMessage());
                     }
                     JOptionPane.showMessageDialog(null,
                             " Etudiant Supprimer avec succée ! ");
@@ -151,8 +153,8 @@ public class PageEditer extends Fenetre {
             for (Etudiant etudiant : etudiantService.getfindAll()) {
                 comboBox.addItem(etudiant);
             }
-        } catch (EtudiantServiceException etudiantServiceException) {
-            error_label.setText(etudiantServiceException.getMessage());
+        } catch (GetAllEtudiantServiceException getAllEtudiantServiceException) {
+            error_label.setText(getAllEtudiantServiceException.getMessage());
         }
     }
 

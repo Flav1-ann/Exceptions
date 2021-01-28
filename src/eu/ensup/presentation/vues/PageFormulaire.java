@@ -5,7 +5,8 @@ import com.toedter.calendar.JDateChooser;
 import eu.ensup.domaine.Etudiant;
 import eu.ensup.domaine.Responsable;
 import eu.ensup.service.EtudiantService;
-import eu.ensup.service.exceptions.EtudiantServiceException;
+import eu.ensup.service.exception.CredentialException;
+import eu.ensup.service.exception.etudiantExceptions.AddEtudiantServiceException;
 
 import javax.swing.*;
 import java.sql.Date;
@@ -78,7 +79,7 @@ public class PageFormulaire extends  Fenetre {
                     }
                     JOptionPane.showMessageDialog(new JFrame(), message, title, typeMessage);
                     _clearForm();***/
-                } catch (EtudiantServiceException etudiantServiceException) {
+                } catch (AddEtudiantServiceException | CredentialException etudiantServiceException) {
                      error_label.setText(etudiantServiceException.getMessage());
                 }
             //}

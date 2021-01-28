@@ -1,6 +1,6 @@
 
 package eu.ensup.presentation.vues;
-import eu.ensup.service.exceptions.CredentialException;
+import eu.ensup.service.exception.CredentialException;
 import eu.ensup.service.ResponsableService;
 
 import javax.swing.*;

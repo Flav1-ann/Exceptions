@@ -2,8 +2,9 @@ package eu.ensup.presentation.vues;
 
 import eu.ensup.domaine.Directeur;
 import eu.ensup.domaine.Responsable;
-import eu.ensup.service.exceptions.CoursServiceException;
-import eu.ensup.service.exceptions.EtudiantServiceException;
+import eu.ensup.service.exception.coursExceptions.GetAllCoursServiceException;
+import eu.ensup.service.exception.coursExceptions.InscriptionCoursServiceException;
+import eu.ensup.service.exception.etudiantExceptions.GetAllEtudiantServiceException;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -52,7 +53,7 @@ public class PagePrincipal  extends Fenetre{
         btn_lister.addActionListener(e -> {
             try {
                 new PageListing(user).setVisible(true);
-            } catch (EtudiantServiceException etudiantServiceException) {
+            } catch (GetAllEtudiantServiceException etudiantServiceException) {
                 String message = etudiantServiceException.getMessage();
                 String title = "Liste des éléves";
                 int typeMessage = JOptionPane.ERROR_MESSAGE;
@@ -67,9 +68,12 @@ public class PagePrincipal  extends Fenetre{
         });
         btn_associer.addActionListener(e -> {
             try {
+                //todo
                 new PageAssocierEtudiant(user).setVisible(true);
-            } catch (CoursServiceException coursServiceException) {
-                coursServiceException.printStackTrace();
+            } catch (GetAllCoursServiceException getAllCoursServiceException) {
+                getAllCoursServiceException.printStackTrace();
+            } catch (InscriptionCoursServiceException inscriptionCoursServiceException) {
+                inscriptionCoursServiceException.printStackTrace();
             }
             PagePrincipal.super.setVisible(false);
         });
