@@ -49,9 +49,9 @@ Il faut ensuite importer dans la base de données le fichier "dump.sql". Ce fich
 
 ### 2ème étape 
 
-Ensuite ouvrez l’invite de commande et rendez vous dans le dossier "Etablissement_Scolaire\out\artifacts\Etablissement_Scolaire_jar\" :
+Ensuite ouvrez l’invite de commande et rendez vous dans le dossier "livraison" :
 
-depuis la racine du git :  cd Etablissement_Scolaire/out/artifacts/Etablissement_Scolaire_jar/
+depuis la racine du git :  cd livraison/Etablissement_Scolaire.jar
 
 Maintenant, executez la commande :
 java -jar Etablissement_Scolaire.jar
@@ -68,7 +68,7 @@ Une JavaDoc existe. Vous la trouverez dans le dossier Etablissement_Scolaire\out
 # Logs
 Vous retrouverez les logs à l'endroit de l'execution de la commande de lancement soit par défaut: 
 
-Etablissement_Scolaire/out/artifacts/Etablissement_Scolaire_jar/Log.out.txt
+ livraison/Log.out.txt
 
 # Connexion à l'application
 Pour vous connectez des identifiants on déjà été créer pour vous pour accéder à l'application en tant que Directeur ou en Responsable d'étude. 
