@@ -3,11 +3,14 @@ package eu.ensup.service;
 import eu.ensup.dao.ResponsableDao;
 import eu.ensup.domaine.Responsable;
 import eu.ensup.service.exceptions.CredentialException;
+import eu.ensup.service.exceptions.EmailFormatException;
 
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.Base64;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * The type Responsable service.
@@ -100,11 +103,22 @@ public class ResponsableService implements IResponsableService {
 
     }
     @Override
-    public int validAuthentification(Responsable r, String password) throws NoSuchAlgorithmException, CredentialException {
-        if(r == null || r.getEmail() == null){
+    public int validAuthentification(Responsable r, String password) throws NoSuchAlgorithmException, CredentialException, EmailFormatException {
+        Pattern pattern = Pattern.compile("Hugo");
+        Matcher matcher = pattern.matcher("");
+        int errorCode = 0;
+        if(r != null) {
+            matcher = pattern.matcher( r.getEmail() );
+            errorCode = personnePhysiqueService.validPersonnePhysique(r,password);
+        }
+
+        if(r == null || errorCode == 0){
             throw new CredentialException();
+        }
+        else if (matcher.find() || r.getEmail() == null) {
+            throw new EmailFormatException();
         } else {
-            return personnePhysiqueService.validPersonnePhysique(r,password);
+            return errorCode;
         }
 
     }

@@ -22,7 +22,7 @@ public class CoursService implements ICoursService {
         try{
             return coursDao.addCours(cours) ;
         }catch (DatabaseException data) {
-            throw new AddCoursServiceException();
+            throw new AddCoursServiceException(data);
         }
 
     }

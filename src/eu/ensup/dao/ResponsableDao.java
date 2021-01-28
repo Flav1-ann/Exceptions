@@ -1,5 +1,7 @@
 package eu.ensup.dao;
 
+import eu.ensup.dao.exceptions.DaoException;
+import eu.ensup.dao.exceptions.DatabaseException;
 import eu.ensup.domaine.Directeur;
 import eu.ensup.domaine.Responsable;
 
@@ -154,32 +156,32 @@ public class ResponsableDao extends BaseDao implements IResponsableDao {
 
     }
     public Responsable getCredentialByEmail(String email) throws SQLException {
-        Responsable R1 = null;
-        connexion();
-        setPs(getCn().prepareStatement("SELECT DISTINCT id_personne,nom,prenom,email,adresse,telephone,mdp,salt,libelle " +
-                                            "FROM personne a, personne_phys b, directeur c, role e " +
-                                            "WHERE a.id_personne = b.id_phys and b.id_phys = c.id_dir and b.id_role = e.id_role and email = ?;"));
-        PreparedStatement p2;
-        p2 = getCn().prepareStatement("SELECT DISTINCT id_personne,nom,prenom,email,adresse,telephone,mdp,salt,libelle " +
-                                            "FROM personne a, personne_phys b, res_etude c, role e " +
-                                            "WHERE a.id_personne = b.id_phys and b.id_phys = c.id_res and b.id_role = e.id_role and email = ?");
-        getPs().setString(1, email);
-        p2.setString(1,email);
-        setRs(getPs().executeQuery());
+            Responsable R1 = null;
+            connexion();
+            setPs(getCn().prepareStatement("SELECT DISTINCT id_personne,nom,prenom,email,adresse,telephone,mdp,salt,libelle " +
+                    "FROM personne a, personne_phys b, directeur c, role e " +
+                    "WHERE a.id_personne = b.id_phys and b.id_phys = c.id_dir and b.id_role = e.id_role and email = ?;"));
+            PreparedStatement p2;
+            p2 = getCn().prepareStatement("SELECT DISTINCT id_personne,nom,prenom,email,adresse,telephone,mdp,salt,libelle " +
+                    "FROM personne a, personne_phys b, res_etude c, role e " +
+                    "WHERE a.id_personne = b.id_phys and b.id_phys = c.id_res and b.id_role = e.id_role and email = ?");
+            getPs().setString(1, email);
+            p2.setString(1, email);
+            setRs(getPs().executeQuery());
 
-        while (getRs().next()){
-               R1 = new Directeur(getRs().getInt("id_personne"),getRs().getString("nom"),getRs().getString("prenom"),getRs().getString("email"),getRs().getString("adresse"),getRs().getString("telephone"),getRs().getString("mdp"),getRs().getString("salt"),null);
-
-        }
-        if(R1 == null){
-            setRs(p2.executeQuery());
-
-            while(getRs().next()){
-                R1 = new Responsable(getRs().getInt("id_personne"),getRs().getString("nom"),getRs().getString("prenom"),getRs().getString("email"),getRs().getString("adresse"),getRs().getString("telephone"),getRs().getString("mdp"),getRs().getString("salt"));
+            while (getRs().next()) {
+                R1 = new Directeur(getRs().getInt("id_personne"), getRs().getString("nom"), getRs().getString("prenom"), getRs().getString("email"), getRs().getString("adresse"), getRs().getString("telephone"), getRs().getString("mdp"), getRs().getString("salt"), null);
 
             }
-        }
-        return R1;
+            if (R1 == null) {
+                setRs(p2.executeQuery());
+
+                while (getRs().next()) {
+                    R1 = new Responsable(getRs().getInt("id_personne"), getRs().getString("nom"), getRs().getString("prenom"), getRs().getString("email"), getRs().getString("adresse"), getRs().getString("telephone"), getRs().getString("mdp"), getRs().getString("salt"));
+
+                }
+            }
+            return R1;
     }
 
 }

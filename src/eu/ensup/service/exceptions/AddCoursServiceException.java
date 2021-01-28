@@ -6,7 +6,8 @@ import eu.ensup.dao.exceptions.DatabaseException;
  * @author Allan
  */
 public class AddCoursServiceException extends Exception {
-    public AddCoursServiceException() {
-        super("Le cours n'a pas pu être ajouter");
+    public AddCoursServiceException(DatabaseException data) {
+        super( data.getMessage() );
+        BaseServiceException.logger.info(data.getMessage());
     }
 }

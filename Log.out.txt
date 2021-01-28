@@ -21,3 +21,12 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2021-01-27 12:26:20 INFO  - l'étudiant a été supprimé.
 2021-01-27 12:29:32 INFO  - l'étudiant ALLAn ALLAn a été modifié.
 2021-01-27 13:51:34 INFO  - l'étudiant ALLAn ALLAn a été modifié.
+2021-01-28 09:46:23 INFO  - L'email doit être au format xxx@xxx.xx
+2021-01-28 09:47:47 INFO  - L'email doit être au format xxx@xxx.xx
+2021-01-28 09:48:18 INFO  - Le mot de passe ou l'adresse mail..ne sont pas correcte... veuillez réessayer !
+2021-01-28 09:49:38 INFO  - Le mot de passe ou l'adresse mail..ne sont pas correcte... veuillez réessayer !
+2021-01-28 09:52:16 INFO  - Le mot de passe ou l'adresse mail..ne sont pas correcte... veuillez réessayer !
+2021-01-28 10:17:40 INFO  - L'email doit être au format xxx@xxx.xx
+2021-01-28 10:20:20 INFO  - L'email doit être au format xxx@xxx.xx
+2021-01-28 10:20:32 INFO  - Le mot de passe ou l'adresse mail..ne sont pas correcte... veuillez réessayer !
+2021-01-28 10:22:08 INFO  - Le mot de passe ou l'adresse mail..ne sont pas correcte... veuillez réessayer !

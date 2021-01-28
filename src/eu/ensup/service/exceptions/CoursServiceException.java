@@ -8,7 +8,10 @@ import eu.ensup.dao.exceptions.DatabaseException;
 public class CoursServiceException extends Exception {
 
     public CoursServiceException(DatabaseException data) {
+
         super(data.getMessage());
+        BaseServiceException.logger.info(data.getMessage());
+
     }
 
 }

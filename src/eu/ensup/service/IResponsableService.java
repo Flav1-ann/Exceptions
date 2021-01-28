@@ -2,6 +2,7 @@ package eu.ensup.service;
 
 import eu.ensup.domaine.Responsable;
 import eu.ensup.service.exceptions.CredentialException;
+import eu.ensup.service.exceptions.EmailFormatException;
 
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
@@ -84,6 +85,6 @@ public interface IResponsableService {
      * @return the int
      * @throws NoSuchAlgorithmException the no such algorithm exception
      */
-    int validAuthentification(Responsable r, String password) throws NoSuchAlgorithmException, CredentialException;
+    int validAuthentification(Responsable r, String password) throws NoSuchAlgorithmException, CredentialException, EmailFormatException;
 
 }
